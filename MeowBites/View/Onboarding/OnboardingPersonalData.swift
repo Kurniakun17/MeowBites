@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct OnboardingPersonalData: View {
-    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
 
-    @State var step = 1
+    @Binding var step: Int
     @State var isDisabled = true
     @State var userGender = ""
     @State var selectedAge = 20
     @State var selectedHeight = 150
     @State var selectedWeight = 40
+    @State var userPersonalData = UserPersonalData(gender: "", age: 0, weight: 0, height: 0, exerciseRate: "")
 
     func progressWidth(for step: Int, in geo: GeometryProxy) -> CGFloat {
         switch step {
@@ -99,7 +99,6 @@ struct OnboardingPersonalData: View {
 
                             Button(action: {
                                 step = 2
-                                print(userGender)
                             }, label: {
                                 Text("Next")
                                     .font(.system(size: 24, weight: .bold))
@@ -137,7 +136,6 @@ struct OnboardingPersonalData: View {
 
                                 Button(action: {
                                     step = 3
-                                    print(selectedAge)
                                 }, label: {
                                     Text("Next")
                                         .font(.system(size: 24, weight: .bold))
@@ -172,17 +170,29 @@ struct OnboardingPersonalData: View {
                                         })
                                 })
 
-                                Button(action: {
-                                    context.insert(UserPersonalData(gender: userGender, age: selectedAge, weight: selectedWeight, height: selectedHeight))
-                                }, label: {
-                                    Text("Done")
-                                        .font(.system(size: 24, weight: .bold))
-                                        .padding(.vertical, 20)
-                                        .frame(width: 239)
-                                        .background(.prime)
-                                        .foregroundStyle(.white)
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                                })
+                                NavigationLink(destination:
+                                    OnboardingExerciseSelect(userPersonalData: $userPersonalData).onAppear {
+                                        print(userPersonalData)
+                                        print(userPersonalData.gender)
+                                        userPersonalData = UserPersonalData(gender: userGender, age: selectedAge, weight: selectedWeight, height: selectedHeight, exerciseRate: "")
+                                    },
+                                    label: {
+                                        Text("Done")
+                                            .font(.system(size: 24, weight: .bold))
+                                            .padding(.vertical, 20)
+                                            .frame(width: 239)
+                                            .background(.prime)
+                                            .foregroundStyle(.white)
+                                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                                    })
+                                    .onTapGesture {
+                                        print("Yakkk1")
+                                        userPersonalData = UserPersonalData(gender: userGender, age: selectedAge, weight: selectedWeight, height: selectedHeight, exerciseRate: "")
+
+                                        print("Yakkk2")
+                                        print(userPersonalData)
+                                        print("Yakkk3")
+                                    }
                             }
                         }
 
@@ -223,5 +233,5 @@ struct OnboardingPersonalData: View {
 }
 
 #Preview {
-    OnboardingPersonalData()
+    OnboardingPersonalData(step: .constant(1))
 }

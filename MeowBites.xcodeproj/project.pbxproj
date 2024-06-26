@@ -14,6 +14,7 @@
 		20FCA89A2C2BC4A200E3546E /* OnboardingPersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8992C2BC4A200E3546E /* OnboardingPersonalData.swift */; };
 		20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */; };
 		20FCA8A02C2C0AF300E3546E /* OnboardingDoneSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA89F2C2C0AF300E3546E /* OnboardingDoneSet.swift */; };
+		20FCA8A22C2C33B100E3546E /* OnboardingExerciseSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */; };
 		F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */; };
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		20FCA8992C2BC4A200E3546E /* OnboardingPersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPersonalData.swift; sourceTree = "<group>"; };
 		20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonalDataModel.swift; sourceTree = "<group>"; };
 		20FCA89F2C2C0AF300E3546E /* OnboardingDoneSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDoneSet.swift; sourceTree = "<group>"; };
+		20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExerciseSelect.swift; sourceTree = "<group>"; };
 		F6890EA22C2BBB320042C151 /* MeowBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowBitesApp.swift; sourceTree = "<group>"; };
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				20FCA8972C2BC3C400E3546E /* OnboardingHeightWeight.swift */,
 				20FCA8992C2BC4A200E3546E /* OnboardingPersonalData.swift */,
 				20FCA89F2C2C0AF300E3546E /* OnboardingDoneSet.swift */,
+				20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */,
 				20FCA8922C2BBF4600E3546E /* OnboardingStart.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
+				20FCA8A22C2C33B100E3546E /* OnboardingExerciseSelect.swift in Sources */,
 				20FCA8942C2BC28E00E3546E /* OnboardingGenderSelect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,7 +328,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeowBites/Preview Content\"";
-				DEVELOPMENT_TEAM = 49V8Q5W76J;
+				DEVELOPMENT_TEAM = 2RQ6LB993C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -353,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeowBites/Preview Content\"";
-				DEVELOPMENT_TEAM = 49V8Q5W76J;
+				DEVELOPMENT_TEAM = 2RQ6LB993C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

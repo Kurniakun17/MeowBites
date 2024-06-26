@@ -11,6 +11,7 @@ import SwiftUI
 struct OnboardingStart: View {
     @State var isPageOne = true
 
+    @State var step = 1
     var body: some View {
         NavigationStack {
             GeometryReader {
@@ -47,7 +48,7 @@ struct OnboardingStart: View {
                         }
                         .padding(.horizontal, 32)
 
-                        NavigationLink(destination: OnboardingPersonalData(), label: {
+                        NavigationLink(destination: OnboardingPersonalData(step: $step), label: {
                             Text("Start calculate BMR")
                                 .font(.system(size: 24, weight: .bold))
                                 .padding(.vertical, 20)
