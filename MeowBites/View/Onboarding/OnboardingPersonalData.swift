@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingPersonalData: View {
+    @Environment(\.modelContext) var context
     @Environment(\.dismiss) var dismiss
 
     @State var step = 1
@@ -172,9 +173,9 @@ struct OnboardingPersonalData: View {
                                 })
 
                                 Button(action: {
-                                    step = 3
+                                    context.insert(UserPersonalData(gender: userGender, age: selectedAge, weight: selectedWeight, height: selectedHeight))
                                 }, label: {
-                                    Text("Next")
+                                    Text("Done")
                                         .font(.system(size: 24, weight: .bold))
                                         .padding(.vertical, 20)
                                         .frame(width: 239)

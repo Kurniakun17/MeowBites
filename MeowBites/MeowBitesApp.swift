@@ -5,6 +5,7 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 26/06/24.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct MeowBitesApp: App {
         WindowGroup {
             OnboardingStart()
         }
+        .modelContainer(for: UserPersonalData.self)
     }
 }

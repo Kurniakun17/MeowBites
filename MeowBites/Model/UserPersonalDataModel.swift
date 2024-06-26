@@ -12,10 +12,10 @@ import SwiftData
 class UserPersonalData: Identifiable {
     var gender: String
     var age: Int
-    var weight: Double
-    var height: Double
+    var weight: Int
+    var height: Int
 
-    init(gender: String, age: Int, weight: Double, height: Double) {
+    init(gender: String, age: Int, weight: Int, height: Int) {
         self.gender = gender
         self.age = age
         self.weight = weight
