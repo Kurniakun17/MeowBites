@@ -12,6 +12,7 @@
 		20FCA8962C2BC35100E3546E /* OnboardingAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8952C2BC35100E3546E /* OnboardingAge.swift */; };
 		20FCA8982C2BC3C400E3546E /* OnboardingHeightWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8972C2BC3C400E3546E /* OnboardingHeightWeight.swift */; };
 		20FCA89A2C2BC4A200E3546E /* OnboardingPersonalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8992C2BC4A200E3546E /* OnboardingPersonalData.swift */; };
+		20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */; };
 		F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */; };
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		20FCA8952C2BC35100E3546E /* OnboardingAge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAge.swift; sourceTree = "<group>"; };
 		20FCA8972C2BC3C400E3546E /* OnboardingHeightWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHeightWeight.swift; sourceTree = "<group>"; };
 		20FCA8992C2BC4A200E3546E /* OnboardingPersonalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPersonalData.swift; sourceTree = "<group>"; };
+		20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonalDataModel.swift; sourceTree = "<group>"; };
 		F6890EA22C2BBB320042C151 /* MeowBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowBitesApp.swift; sourceTree = "<group>"; };
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		20FCA89C2C2BE74C00E3546E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F6890E992C2BBB320042C151 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
+				20FCA89C2C2BE74C00E3546E /* Model */,
 				20FCA8902C2BBF2D00E3546E /* View */,
 				F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */,
 				F6890EA72C2BBB320042C151 /* ContentView.swift */,
@@ -172,6 +183,7 @@
 				20FCA8962C2BC35100E3546E /* OnboardingAge.swift in Sources */,
 				20FCA8982C2BC3C400E3546E /* OnboardingHeightWeight.swift in Sources */,
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
+				20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */,
 				20FCA8922C2BBF4600E3546E /* OnboardingStart.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
 				20FCA8942C2BC28E00E3546E /* OnboardingGenderSelect.swift in Sources */,
