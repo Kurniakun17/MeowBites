@@ -46,9 +46,7 @@ struct OnboardingStart: View {
                         }
                         .padding(.horizontal, 32)
 
-                        Button(action: {
-                            isPageOne.toggle()
-                        }, label: {
+                        NavigationLink(destination: OnboardingGenderSelect(), label: {
                             Text("Start calculate BMR")
                                 .font(.system(size: 24, weight: .bold))
                                 .padding(.vertical, 20)
