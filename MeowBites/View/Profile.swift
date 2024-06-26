@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct Profile: View {
+    @Binding var inputName: String
+    @Binding var inputAge: String
+    @Binding var inputHeight: String
+    @Binding var inputWeight: String
+    @Binding var inputType: String
+    
     var body: some View {
         VStack {
             ZStack {
@@ -34,130 +40,144 @@ struct Profile: View {
                 Image("frame1")
                     .offset(y:-90)
                     .padding(.bottom, 32)
-                Image("namebutton")
-                    .padding(.bottom, 120)
-                
             }
             
             VStack {
-                Text("Nutrient Goals")
-                    .font(.title2).bold()
-                    .frame(width: 325, height: 24, alignment: .topLeading)
+                Text("Profile")
+                    .font(.largeTitle).bold()
+                    .frame(width: 325, height: 24, alignment: .center)
                     .padding(.bottom, 16)
                 
+                Text("Calorie need")
+                    .foregroundColor(Color(red: 0.55, green: 0.58, blue: 0.67))
+                    .font(.callout)
+                    .frame(width: 325, height: 24, alignment: .leading)
                 Rectangle()
-                    .fill(Color(red: 1, green: 0.72, blue: 0))
-                    .frame(width: 325, height: 158, alignment: .center)
+                    .fill(Color(red: 0.98, green: 0.82, blue: 0.82))
+                    .frame(width: 325, height: 48, alignment: .center)
                     .cornerRadius(16)
                     .overlay(alignment: .center, content: {
-                        HStack (spacing: 20){
-                            VStack(alignment: .center) {
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 56, height: 56)
-                                    .padding(.bottom, 16)
-                                Text("1400")
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                                Text("kcal")
-                                    .frame(width: 40, alignment: .center)
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                            }
-                            VStack(alignment: .center) {
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 56, height: 56)
-                                    .padding(.bottom, 16)
-                                Text("5 g")
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                                Text("Sugar")
-                                    .frame(width: 40, alignment: .center)
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                            }
-                            VStack(alignment: .center) {
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 56, height: 56)
-                                    .padding(.bottom, 16)
-                                Text("5 g")
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                                Text("Salt")
-                                    .frame(width: 40, alignment: .center)
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                            }
-                            VStack(alignment: .center) {
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 56, height: 56)
-                                    .padding(.bottom, 16)
-                                Text("5 g")
-                                    .font(.caption)
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                                Text("Fat")
-                                    .frame(width: 40, alignment: .center)
-                                    .font(Font.custom("SF Pro", size: 14)
-                                        .weight(.medium)
-                                    )
-                            }
-                            
+                        HStack {
+                            Image("calorie")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                            Text("1978 calories")
+                                .frame(width: 260, height: 24, alignment: .leading)
+                                .font(.callout)
                         }
                     })
-                    .padding(.bottom, 32)
+                    .padding(.bottom, 20)
                 
+                Text("Maximum nutrient need")
+                    .foregroundColor(Color(red: 0.55, green: 0.58, blue: 0.67))
+                    .font(.callout)
+                    .frame(width: 325, height: 24, alignment: .leading)
                 
-                Text("Personal Information")
-                    .font(.title2).bold()
-                    .frame(width: 325, height: 24, alignment: .topLeading)
-                    .padding(.bottom, 16)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(Color.white)
+                        .frame(width: 326, height: 96)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color(red: 0.86, green: 0.87, blue: 0.88), lineWidth: 1))
+                    VStack {
+                        HStack {
+                            Image("calorie")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                            Text("1978 calories")
+                                .frame(width: 260, height: 24, alignment: .leading)
+                                .font(.callout)
+                        }
+                        
+                        HStack {
+                            Image("calorie")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                            Text("5g of salt")
+                                .frame(width: 260, height: 24, alignment: .leading)
+                                .font(.callout)
+                        }
+                        
+                        HStack {
+                            Image("calorie")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                            Text("66g of fat")
+                                .frame(width: 260, height: 24, alignment: .leading)
+                                .font(.callout)
+                        }
+                    }
+                    
+                }
+                .padding(.bottom, 20)
+            }
+            .offset(y: -90)
+            
+            VStack {
+                Text("Maximum nutrient need")
+                    .foregroundColor(Color(red: 0.55, green: 0.58, blue: 0.67))
+                    .font(.callout)
+                    .frame(width: 325, height: 24, alignment: .leading)
                 
-                HStack (spacing: 15){
-                    VStack(alignment: .leading) {
-                        Text("Gender")
-                            .font(.headline)
-                        Text("Male")
-                            .frame(width: 70, alignment: .leading)
+                LabeledContent {
+                    TextField("Name", text: $inputName)
+                        .multilineTextAlignment(.trailing)
+                } label: {
+                    HStack {
+                        Text("name")
+                        Spacer()
                     }
-                    VStack(alignment: .leading) {
-                        Text("Age")
-                            .font(.headline)
-                        Text("27 yo")
-                            .frame(width: 70, alignment: .leading)
+                    
+                }
+                //            Picker("Notify Me About", selection: $notifyMeAbout) {
+                //                Text("Direct Messages").tag(NotifyMeAboutType.directMessages)
+                //                Text("Mentions").tag(NotifyMeAboutType.mentions)
+                //                Text("Anything").tag(NotifyMeAboutType.anything)
+                //            }
+                Form {
+                    LabeledContent {
+                        TextField("Age", text: $inputAge)
+                            .multilineTextAlignment(.trailing)
+                    } label: {
+                        HStack {
+                            Text("age")
+                            Spacer()
+                        }
                     }
-                    VStack(alignment: .leading) {
-                        Text("Height")
-                            .font(.headline)
-                        Text("159 cm")
-                            .frame(width: 70, alignment: .leading)
+                    LabeledContent {
+                        TextField("Height", text: $inputHeight)
+                            .multilineTextAlignment(.trailing)
+                    } label: {
+                        HStack {
+                            Text("height")
+                            Spacer()
+                        }
                     }
-                    VStack(alignment: .leading) {
-                        Text("Weight")
-                            .font(.headline)
-                        Text("58 kg")
-                            .frame(width: 70, alignment: .leading)
+                    LabeledContent {
+                        TextField("Weight", text: $inputWeight)
+                            .multilineTextAlignment(.trailing)
+                    } label: {
+                        HStack {
+                            Text("weight")
+                            Spacer()
+                        }
                     }
                 }
-                .padding(.bottom, 32)
-                Image("editbutton")
-                    .padding(.bottom, 50)
             }
-            .offset(y:-100)
+            .offset(y: -90)
+            //        Form {
+            //            Section(header: Text("Notifications")) {
+            //                Picker("Exercise", selection: $notifyMeAbout) {
+            //                    Text("Direct Messages").tag(NotifyMeAboutType.directMessages)
+            //                }
+            //            }
+            //        }
         }
     }
 }
-
-#Preview {
-    Profile()
-}
+    
+    
+    #Preview {
+        Profile(inputName: .constant("test"), inputAge: .constant("test"), inputHeight: .constant("test"), inputWeight: .constant("test"), inputType: .constant("test"))
+    }

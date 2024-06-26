@@ -19,31 +19,46 @@ struct FoodDiary: View {
                     .font(.title2).bold()
                     .padding(.trailing, 140)
             }
-            HStack {
-                Image("buttontoday")
-                Spacer()
-                    .frame(width: 13)
-                Image("calendar")
-            }
+            
             Spacer()
                 .frame(height: 24)
             ZStack {
-                VStack {
-                    HStack {
-                        Image("greencircle")
-                        Text("200 kcal remaining")
-                            .font(.title2).bold()
+                VStack(alignment: .leading) {
+                    HStack(spacing: 20) {
+                        Image("calwhite")
+                            .frame(width: 30, alignment: .leading)
+                        
+                        VStack (alignment: .leading) {
+                            Text("1700 / 1900")
+                                .font(.title2)
+                                .bold()
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Text("calorie intake: 0 kcal")
+                                .font(.footnote)
+                                .foregroundColor(.white)
+                        }
+                        .frame(maxWidth: .infinity)
+
                     }
-                    Text("calorie intake: 0 kcal")
-                        .font(.footnote)
-                        .foregroundColor(.black.opacity(0.4))
-                    Image("calbar1")
-                        .padding(.top, 16)
+                    .frame(maxWidth: .infinity)
+                    
+                    VStack {
+                        Image("fulldanger")
+                    }
+                    
+                    .frame(maxWidth: .infinity)
+                   
 
                 }
-                .padding(20)
-                .background((Color(red: 0.8, green: 0.94, blue: 0.75)))
+                .padding(32)
+                .frame(maxWidth: .infinity)
+                .background(Color(red: 0.31, green: 0.36, blue: 0.86))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.horizontal, 32)
+
             }
             HStack (spacing: 32) {
                 VStack {
