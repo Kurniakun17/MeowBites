@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30D2C2C1080005A69AA /* Profile.swift */; };
+		3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */; };
 		F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */; };
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3CB30D2C2C1080005A69AA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiary.swift; sourceTree = "<group>"; };
 		F6890EA22C2BBB320042C151 /* MeowBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowBitesApp.swift; sourceTree = "<group>"; };
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B3CB30C2C2C105B005A69AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B3CB30D2C2C1080005A69AA /* Profile.swift */,
+				3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F6890E992C2BBB320042C151 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +64,7 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
+				3B3CB30C2C2C105B005A69AA /* View */,
 				F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */,
 				F6890EA72C2BBB320042C151 /* ContentView.swift */,
 				F6890EA92C2BBB330042C151 /* Assets.xcassets */,
@@ -138,7 +152,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
+				3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
+				3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +296,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +326,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
