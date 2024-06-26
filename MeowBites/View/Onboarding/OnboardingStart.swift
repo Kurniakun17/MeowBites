@@ -46,7 +46,7 @@ struct OnboardingStart: View {
                         }
                         .padding(.horizontal, 32)
 
-                        NavigationLink(destination: OnboardingGenderSelect(), label: {
+                        NavigationLink(destination: OnboardingPersonalData(), label: {
                             Text("Start calculate BMR")
                                 .font(.system(size: 24, weight: .bold))
                                 .padding(.vertical, 20)
@@ -56,8 +56,8 @@ struct OnboardingStart: View {
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
                         })
                     }
-                    .frame(width: geo.size.width)
-                    .offset(y: geo.size.height - 230)
+                    .frame(width: UIScreen.main.bounds.width)
+                    .offset(y: UIScreen.main.bounds.height - 320)
                 }
                 .ignoresSafeArea()
             }

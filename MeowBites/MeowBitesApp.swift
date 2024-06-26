@@ -11,7 +11,7 @@ import SwiftUI
 struct MeowBitesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingStart()
         }
     }
 }

@@ -8,52 +8,12 @@
 import SwiftUI
 
 struct OnboardingGenderSelect: View {
-    @State var isDisabled = true
-    @State var userGender = ""
+    @Binding var userGender: String
+    @Binding var isDisabled: Bool
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 32) {
-                Text("Tell us a little bit about yourself")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.leading)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(.purplefade)
-                        .frame(width: .infinity, height: 12)
-
-                    HStack(spacing: 0) {
-                        ZStack(alignment: .center) {
-                            Circle()
-                                .fill(.secondaryPurple)
-                                .frame(width: 12)
-                            Circle()
-                                .fill(.purplefade)
-                                .frame(width: 6)
-                            Circle()
-                                .fill(.prime)
-                                .frame(width: 4)
-                        }
-
-                        ZStack(alignment: .center) {
-                            Circle()
-                                .fill(.secondaryPurple)
-                                .frame(width: 35, height: 35)
-
-                            Circle()
-                                .fill(.prime)
-                                .frame(width: 25, height: 25)
-
-                            Text("1")
-                                .foregroundStyle(.white)
-                        }
-                    }
-                }
-
                 VStack(spacing: 16) {
                     Text("Your Gender")
                         .font(.system(size: 19))
@@ -125,27 +85,25 @@ struct OnboardingGenderSelect: View {
                         })
                     }
                 }
-                .padding(.bottom, 136)
-
-                NavigationLink(destination: OnboardingAge(),
-                               label: {
-                                   Text("Next")
-                                       .font(.system(size: 24, weight: .bold))
-                                       .padding(.vertical, 20)
-                                       .frame(width: 326)
-                                       .background(isDisabled ? .lightDisableGrey : .prime)
-                                       .foregroundStyle(isDisabled ? Color.disableGrey : .white)
-                                       .clipShape(RoundedRectangle(cornerRadius: 16))
-                               })
-                               .disabled(isDisabled)
+                Spacer()
+//
+//                NavigationLink(destination: OnboardingAge(),
+//                               label: {
+//                                   Text("Next")
+//                                       .font(.system(size: 24, weight: .bold))
+//                                       .padding(.vertical, 20)
+//                                       .frame(width: 326)
+//                                       .background(isDisabled ? .lightDisableGrey : .prime)
+//                                       .foregroundStyle(isDisabled ? Color.disableGrey : .white)
+//                                       .clipShape(RoundedRectangle(cornerRadius: 16))
+//                               })
+//                               .disabled(isDisabled)
             }
-            .padding(.vertical, 72)
-            .padding(.horizontal, 32)
         }
         .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    OnboardingGenderSelect()
+    OnboardingGenderSelect(userGender: .constant(""), isDisabled: .constant(true))
 }
