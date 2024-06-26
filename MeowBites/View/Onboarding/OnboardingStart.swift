@@ -9,9 +9,6 @@ import SwiftData
 import SwiftUI
 
 struct OnboardingStart: View {
-    @Environment(\.modelContext) var context
-    @Query var personalData: [UserPersonalData]
-
     @State var isPageOne = true
 
     var body: some View {
@@ -40,9 +37,6 @@ struct OnboardingStart: View {
 
                     VStack(spacing: 45) {
                         VStack(spacing: 16) {
-                            ForEach(personalData, id: \.self) { person in
-                                Text("\(String(person.age))")
-                            }
                             Text("We need to know your Basal Metabolic Rate")
                                 .font(.system(size: 31))
                                 .bold()
