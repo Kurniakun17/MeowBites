@@ -38,7 +38,8 @@ struct OnboardingGenderSelect: View {
                                     .fill(userGender == "male" ? .lightPurpleAccent : .lightDisableGrey)
                                     .frame(width: 145, height: 145)
                                     .overlay(alignment: .bottomLeading, content: {
-                                        Image("male-cat")
+                                        Image("male-cat-bigger")
+                                            .resizable()
                                     })
 
                                 Circle()
@@ -70,7 +71,8 @@ struct OnboardingGenderSelect: View {
                                     .fill(userGender == "female" ? .lightRedAccent : .lightDisableGrey)
                                     .frame(width: 145, height: 145)
                                     .overlay(alignment: .bottomTrailing, content: {
-                                        Image("female-cat")
+                                        Image("female-cat-bigger")
+                                            .resizable()
                                     })
                                 Circle()
                                     .fill(.redAccent)

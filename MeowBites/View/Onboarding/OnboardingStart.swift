@@ -27,7 +27,7 @@ struct OnboardingStart: View {
                         .clipped()
                         .frame(width: geo.size.width, height: geo.size.height)
 
-                    Image("onboard-cat-1")
+                    Image("onboard-cat-bigger")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 350)
@@ -52,16 +52,16 @@ struct OnboardingStart: View {
                                 .multilineTextAlignment(.center)
                         }
                         .padding(.horizontal, 32)
-                        Button(action: {
-                            for item in personalDatas {
-                                context.delete(item)
-                            }
-                            for item in bmrDatas {
-                                context.delete(item)
-                            }
-                        }, label: {
-                            Text("Delete Data")
-                        })
+//                        Button(action: {
+//                            for item in personalDatas {
+//                                context.delete(item)
+//                            }
+//                            for item in bmrDatas {
+//                                context.delete(item)
+//                            }
+//                        }, label: {
+//                            Text("Delete Data")
+//                        })
 
                         NavigationLink(destination: OnboardingPersonalData(step: $step), label: {
                             Text("Start calculate BMR")
