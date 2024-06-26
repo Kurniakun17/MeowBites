@@ -31,6 +31,14 @@ class FoodLogViewModel: ObservableObject {
         }
         updateNutrientCount()
     }
+    
+    func addFoodPlate(id: Int, modelContext: ModelContext){
+        
+    }
+    
+    func removeFoodPlate(id: Int, modelContext: ModelContext){
+        
+    }
 
     func getFoodServing(id: Int) -> FoodServing? {
         return selectedFood.first(where: { $0.food.id == id })

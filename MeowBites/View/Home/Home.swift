@@ -85,6 +85,11 @@ struct Home: View {
     }
 }
 
+#Preview {
+    Home()
+}
+
+
 struct RoundedCorner: Shape {
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners
@@ -95,6 +100,3 @@ struct RoundedCorner: Shape {
     }
 }
 
-#Preview {
-    Home()
-}

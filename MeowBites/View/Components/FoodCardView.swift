@@ -20,30 +20,39 @@ struct FoodCardView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .frame(maxWidth: .infinity, maxHeight: 100)
+            NavigationLink(destination: {
+                FoodDetail(id: id)
+            }) {
+                HStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
+                .padding(.bottom, 4)
             }
-            .padding(.bottom, 4)
 
             VStack(alignment: .leading) {
-                Text(name)
-                    .font(.subheadline)
-                    .fontWeight(.bold)
+                NavigationLink(destination: { FoodDetail(id: id) }) {
+                    VStack(alignment: .leading) {
+                        Text(name)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.black)
 
-                HStack(spacing: 4) {
-                    Image("calorie")
-                        .resizable()
-                        .frame(width: 16, height: 16)
-                    Text(String(calorie) + " calories")
-                        .fontWeight(.bold)
-                        .font(.caption)
+                        HStack(spacing: 4) {
+                            Image("calorie")
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                            Text(String(calorie) + " calories")
+                                .fontWeight(.bold)
+                                .font(.caption)
+                        }
+
+                        Text("\(String(format: "%.0f", portion))g / \(units)")
+                            .fontWeight(.bold)
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                    }
                 }
-
-                Text("\(String(format: "%.0f", portion))g / \(units)")
-                    .fontWeight(.bold)
-                    .font(.caption)
-                    .foregroundStyle(.gray)
 
                 if serving == 0 {
                     Button(action: {

@@ -21,32 +21,37 @@ struct FoodPlate: View {
 
                 ScrollView(.vertical) {
                     VStack {
-                        VStack(alignment: .leading, spacing: 24) {
-                            VStack(alignment: .leading, spacing: 24) {
+                        VStack(alignment: .leading, spacing: 16) {
+                            VStack(alignment: .leading, spacing: 16) {
                                 HStack {
                                     Text("Sort by:")
 
-                                    HStack {
-                                        Picker("Select a paint color", selection: $sortValue) {
-                                            ForEach(["calorie", "sugar", "salt", "fat"], id: \.self) {
-                                                item in
-                                                HStack(spacing: 4) {
-                                                    Image(item)
+                                    Picker("Select a paint color", selection: $sortValue) {
+                                        Image("calorie")
+                                            .resizable()
+                                            .frame(width: 12, height: 12)
+                                            .tag(SortDescriptor(\FoodItem.calorie))
 
-                                                        .resizable()
-                                                        .frame(width: 12, height: 12)
-                                                    Image(systemName: "arrow.down")
-                                                        .resizable()
-                                                        .frame(width: 12, height: 12)
-                                                }
-                                            }
-                                        }
-                                        .pickerStyle(.menu)
+                                        Image("sugar")
+                                            .resizable()
+                                            .frame(width: 12, height: 12)
+                                            .tag(SortDescriptor(\FoodItem.sugar))
+
+                                        Image("salt")
+                                            .resizable()
+                                            .frame(width: 12, height: 12)
+                                            .tag(SortDescriptor(\FoodItem.salt))
+
+                                        Image("fat")
+                                            .resizable()
+                                            .frame(width: 12, height: 12)
+                                            .tag(SortDescriptor(\FoodItem.fat))
                                     }
-                                    .padding(.vertical, 10)
-                                    .padding(.horizontal, 14)
+                                    .pickerStyle(.menu)
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 3)
                                     .background(.semigray)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .scaleEffect(0.6)
                                     .offset(x: -20)
                                 }

@@ -45,6 +45,18 @@ struct Wave: Shape {
     }
 }
 
+func generateColor(percentage: Int) -> Color {
+    if percentage >= 120 {
+        return .redSoft
+    } else if percentage >= 80 {
+        return .orangeSoft
+    } else {
+        return .successBody
+    }
+
+    return .successBody
+}
+
 struct NutritionBar: View {
     var type: String
     @State var isAnimating = true
@@ -61,7 +73,7 @@ struct NutritionBar: View {
                 if percentage <= 20 || percentage >= 120 {
                     HStack {}
                         .frame(width: 60, height: 60)
-                        .background(percentage <= 20 ? .orangeSoft.opacity(0.4) : .redSoft.opacity(0.4))
+                        .background(generateColor(percentage: percentage).opacity(0.4))
                         .clipShape(Circle())
                         .scaleEffect(isAnimating ? 1.5 : 0)
                         .onAppear {
@@ -72,14 +84,14 @@ struct NutritionBar: View {
                 }
 
                 Circle()
-                    .stroke(percentage < 120 ? .orangeSoft : .redSoft, lineWidth: 12)
+                    .stroke(generateColor(percentage: percentage), lineWidth: 12)
                     .fill(percentage >= 120 ? .redSoft : .white)
                     .frame(width: 60, height: 60)
                     .onAppear {}
 
                 if percentage < 120 {
                     Wave(progress: waveProgress > 0.99 ? 0.80 : waveProgress, waveHeight: 3, phase: phase)
-                        .fill(percentage < 120 ? .orangeSoft.opacity(0.7) : .redSoft.opacity(0.7))
+                        .fill(generateColor(percentage: percentage).opacity(0.7))
                         .frame(width: 70, height: 60)
                         .clipShape(Circle())
                 }

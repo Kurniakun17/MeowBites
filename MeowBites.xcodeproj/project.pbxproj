@@ -23,6 +23,9 @@
 		F6890ECE2C2BBF1A0042C151 /* FoodLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */; };
 		F6890ED02C2BBF2E0042C151 /* FoodServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */; };
 		F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ED12C2BE4880042C151 /* PlateCardView.swift */; };
+		F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */; };
+		F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FB2C2C527D00C53D53 /* FoodList.swift */; };
+		F6D984002C2C638600C53D53 /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FF2C2C638600C53D53 /* FoodDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogViewModel.swift; sourceTree = "<group>"; };
 		F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodServing.swift; sourceTree = "<group>"; };
 		F6890ED12C2BE4880042C151 /* PlateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateCardView.swift; sourceTree = "<group>"; };
+		F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPlateModel.swift; sourceTree = "<group>"; };
+		F6D983FB2C2C527D00C53D53 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
+		F6D983FF2C2C638600C53D53 /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 		F6890EB42C2BBE000042C151 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6D983FD2C2C637100C53D53 /* FoodDetail */,
 				F6890EC42C2BBEB60042C151 /* Components */,
 				F6890EBF2C2BBE870042C151 /* FoodLogging */,
 				F6890EBC2C2BBE650042C151 /* Home */,
@@ -118,6 +125,7 @@
 				F6890EB62C2BBE100042C151 /* FoodModel.swift */,
 				F6890EB92C2BBE2C0042C151 /* ChipModel.swift */,
 				F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */,
+				F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,8 +155,17 @@
 				F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */,
 				F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */,
 				F6890ED12C2BE4880042C151 /* PlateCardView.swift */,
+				F6D983FB2C2C527D00C53D53 /* FoodList.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F6D983FD2C2C637100C53D53 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F6D983FF2C2C638600C53D53 /* FoodDetail.swift */,
+			);
+			path = FoodDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,14 +242,17 @@
 				F6890EB72C2BBE100042C151 /* FoodModel.swift in Sources */,
 				F6890EC82C2BBED80042C151 /* LogSummary.swift in Sources */,
 				F6890EC32C2BBEA90042C151 /* FoodPlate.swift in Sources */,
+				F6D984002C2C638600C53D53 /* FoodDetail.swift in Sources */,
 				F6890ECE2C2BBF1A0042C151 /* FoodLogViewModel.swift in Sources */,
 				F6890EC62C2BBEC60042C151 /* FoodCardView.swift in Sources */,
+				F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */,
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
 				F6890EBE2C2BBE6E0042C151 /* Home.swift in Sources */,
 				F6890ECA2C2BBEEB0042C151 /* NutritionBar.swift in Sources */,
 				F6890EC12C2BBE9C0042C151 /* FoodLogging.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
 				F6890EBA2C2BBE2C0042C151 /* ChipModel.swift in Sources */,
+				F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */,
 				F6890ECC2C2BBEFB0042C151 /* FilterChip.swift in Sources */,
 				F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */,
 			);

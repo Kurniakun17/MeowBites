@@ -11,8 +11,9 @@ import SwiftUI
 struct FoodLogging: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var modelContext
-    @Query var foodsList: [FoodItem]
+    @Query(sort: [SortDescriptor(\FoodItem.calorie), SortDescriptor(\FoodItem.sugar)]) var foodsList: [FoodItem]
     @EnvironmentObject var viewModel: FoodLogViewModel
+    @State private var sortOrder = SortDescriptor(\FoodItem.calorie)
 
     var body: some View {
         ZStack {
@@ -20,21 +21,22 @@ struct FoodLogging: View {
                 ScrollView(.vertical) {
                     VStack(alignment: .leading, spacing: 16) {
 //                       MARK: Seed data
-                        HStack {
-                            Button(action: {
-                                removeSamples()
 
-                            }) {
-                                Text("Remove Item")
-                            }
-                            Spacer()
-                            Button(action: {
-//                                addSamples()
-                                viewModel.addToModelContext(modelContext: modelContext)
-                            }) {
-                                Text("Add Item")
-                            }
-                        }
+//                        HStack {
+//                            Button(action: {
+//                                ()
+//
+//                            }) {
+//                                Text("Remove Item")
+//                            }
+//                            Spacer()
+//                            Button(action: {
+                        ////                                addSamples()
+//                                viewModel.addToModelContext(modelContext: modelContext)
+//                            }) {
+//                                Text("Add Item")
+//                            }
+//                        }
                         ScrollView(.horizontal) {
                             HStack(spacing: 10) {
                                 ForEach(viewModel.ChipList) {
@@ -48,36 +50,47 @@ struct FoodLogging: View {
                                 }
                             }
                         }
-                        .padding(.leading, 20)
+                        .padding(.horizontal, 20)
 
                         VStack(alignment: .leading, spacing: 20) {
-                            Text("Try these!")
-                                .font(.title)
-                                .fontWeight(.bold)
+                            HStack {
+                                Text("Try these!")
+                                    .font(.title)
+                                    .fontWeight(.bold)
 
-                            ForEach(foodsList.chunked(into: 2), id: \.self) { rowItems in
-                                HStack(spacing: 20) {
-                                    ForEach(rowItems) { food in
-                                        FoodCardView(
-                                            id: food.id,
-                                            name: food.name,
-                                            portion: food.portion,
-                                            units: food.units,
-                                            calorie: food.calorie,
-                                            serving: (viewModel.getFoodServing(id: food.id) != nil) ? viewModel.getFoodServing(id: food.id)!.serving : 0,
-                                            addServing: { viewModel.addServing(for: food)
-                                            },
-                                            removeServing: { viewModel.removeServing(for: food)
-                                            }
-                                        )
-                                        .environmentObject(viewModel)
-                                    }
-                                    // Fill remaining space if there's only one item in the row
-                                    if rowItems.count == 1 {
-                                        Spacer()
-                                    }
+                                Spacer()
+
+//                                HStack {
+                                Picker("Select a paint color", selection: $sortOrder) {
+                                    Image("calorie")
+                                        .resizable()
+                                        .frame(width: 12, height: 12)
+                                        .tag(SortDescriptor(\FoodItem.calorie))
+
+                                    Image("sugar")
+                                        .resizable()
+                                        .frame(width: 12, height: 12)
+                                        .tag(SortDescriptor(\FoodItem.sugar))
+
+                                    Image("salt")
+                                        .resizable()
+                                        .frame(width: 12, height: 12)
+                                        .tag(SortDescriptor(\FoodItem.salt))
+
+                                    Image("fat")
+                                        .resizable()
+                                        .frame(width: 12, height: 12)
+                                        .tag(SortDescriptor(\FoodItem.fat))
                                 }
+                                .pickerStyle(.menu)
+                                .padding(.vertical, 5)
+                                .padding(.horizontal, 3)
+                                .background(.semigray)
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                .scaleEffect(0.8)
                             }
+
+                            FoodList(sort: sortOrder)
                         }
                         .padding(20)
                     }
@@ -94,7 +107,6 @@ struct FoodLogging: View {
             }
             .ignoresSafeArea()
         }
-
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -166,7 +178,7 @@ struct FoodLogging: View {
                 imgName: "Ayam Geprek",
                 type: "Protein"
             )
-        
+
         let mieGoreng = FoodItem(
             id: 4,
             name: "Mie Goreng",
@@ -231,7 +243,6 @@ struct FoodLogging: View {
             imgName: "rendang_daging",
             type: "Protein"
         )
-
 
         modelContext.insert(mieGoreng)
         modelContext.insert(sateAyam)

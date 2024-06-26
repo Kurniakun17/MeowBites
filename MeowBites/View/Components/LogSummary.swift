@@ -63,7 +63,7 @@ struct LogSummary: View {
                                 .resizable()
                                 .frame(width: 16, height: 16)
                                 .saturation(0.4)
-                            Text("\(String(format: "%.1f", viewModel.saltCount)) g")
+                            Text("\(String(format: "%.1f", viewModel.saltCount/1000)) g")
                                 .font(.footnote)
                         }
 
