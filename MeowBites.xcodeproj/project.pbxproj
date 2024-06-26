@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20FCA8922C2BBF4600E3546E /* OnboardingStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8912C2BBF4600E3546E /* OnboardingStart.swift */; };
 		F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */; };
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20FCA8912C2BBF4600E3546E /* OnboardingStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStart.swift; sourceTree = "<group>"; };
 		F6890EA22C2BBB320042C151 /* MeowBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowBitesApp.swift; sourceTree = "<group>"; };
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20FCA8902C2BBF2D00E3546E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA8912C2BBF4600E3546E /* OnboardingStart.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F6890E992C2BBB320042C151 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +61,7 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
+				20FCA8902C2BBF2D00E3546E /* View */,
 				F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */,
 				F6890EA72C2BBB320042C151 /* ContentView.swift */,
 				F6890EA92C2BBB330042C151 /* Assets.xcassets */,
@@ -138,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
+				20FCA8922C2BBF4600E3546E /* OnboardingStart.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
