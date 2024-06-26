@@ -73,7 +73,7 @@ struct NutritionBar: View {
 
                 Circle()
                     .stroke(percentage < 120 ? .orangeSoft : .redSoft, lineWidth: 12)
-                    .fill(percentage >= 120 ? .redSoft : .semigray)
+                    .fill(percentage >= 120 ? .redSoft : .white)
                     .frame(width: 60, height: 60)
                     .onAppear {}
 

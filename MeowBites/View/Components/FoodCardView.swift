@@ -8,24 +8,15 @@
 import SwiftUI
 
 struct FoodCardView: View {
+    @EnvironmentObject var viewModel: FoodLogViewModel
+    var id: Int
     var name: String
     var portion: Double
     var units: String
     var calorie: Double
-
-    @State private var serving = 0
-
-    func addServing() {
-        serving += 1
-        print(serving)
-    }
-
-    func removeServing() {
-        if serving > 0 {
-            serving -= 1
-            print(serving)
-        }
-    }
+    var serving = 0
+    var addServing: () -> Void
+    var removeServing: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -49,7 +40,7 @@ struct FoodCardView: View {
                         .font(.caption)
                 }
 
-                Text("\(portion)g / \(units)")
+                Text("\(String(format: "%.0f", portion))g / \(units)")
                     .fontWeight(.bold)
                     .font(.caption)
                     .foregroundStyle(.gray)
@@ -57,12 +48,13 @@ struct FoodCardView: View {
                 if serving == 0 {
                     Button(action: {
                         addServing()
-                        //                        serving += 1
                     }) {
-                        Text("Add")
+                        Text("add")
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity)
                             .padding(8)
+                            .padding(.vertical, 1)
+                            .font(.callout)
                             .foregroundStyle(.white)
                             .background(.prime)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
@@ -72,7 +64,6 @@ struct FoodCardView: View {
                     HStack {
                         Button(action: {
                             removeServing()
-                            //                            serving -= 1
                         }) {
                             Image(systemName: "minus")
                                 .foregroundStyle(.white)
@@ -91,7 +82,6 @@ struct FoodCardView: View {
 
                         Button(action: {
                             addServing()
-                            //                            serving += 1
                         }) {
                             Image(systemName: "plus")
                                 .foregroundStyle(.white)
@@ -111,5 +101,5 @@ struct FoodCardView: View {
 }
 
 #Preview {
-    FoodCardView(name: "Nasi Goreng", portion: 150.0, units: "Serving", calorie: 230.0)
+    FoodCardView(id: 1, name: "Nasi Goreng", portion: 150.0, units: "Serving", calorie: 230.0, addServing: {}, removeServing: {})
 }

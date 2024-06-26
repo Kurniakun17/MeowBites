@@ -10,8 +10,10 @@ import SwiftData
 import SwiftUI
 
 struct Home: View {
+    @StateObject var viewModel = FoodLogViewModel()
+
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 VStack {}.frame(
                     minWidth: 0,
@@ -20,13 +22,13 @@ struct Home: View {
                     maxHeight: .infinity,
                     alignment: .topLeading
                 )
-                .background(.greenSoft)
+                .background(.sucessBackground)
 
                 Image("background")
                     .scaleEffect(1.05)
 
                 Image("cat1")
-                    .shadow(color: .greenOld, radius: 0, x: -16, y: 16)
+                    .shadow(color: .successBody, radius: 0, x: -16, y: 16)
                     .offset(x: 15, y: -100)
 
                 VStack(spacing: 0) {
@@ -44,16 +46,18 @@ struct Home: View {
                     VStack(spacing: 14) {
                         HStack {
                             Image(systemName: "lightbulb.max.fill")
-                                .foregroundStyle(.greenOld)
+                                .foregroundStyle(.successBody)
                             Text("Happy mood, happy food, grab it!")
-                                .foregroundStyle(.greenOld)
+                                .foregroundStyle(.successBody)
                         }
                         .padding(.vertical, 8)
                         .padding(.horizontal, 20)
-                        .background(.greenSoft)
+                        .background(.sucessBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
 
-                        NavigationLink { FoodLogging() } label: {
+                        NavigationLink {
+                            FoodLogging()
+                        } label: {
                             Text("Eat")
                                 .font(.title2)
                                 .fontWeight(.bold)
@@ -77,6 +81,7 @@ struct Home: View {
                 }
             }.ignoresSafeArea()
         }
+        .environmentObject(viewModel)
     }
 }
 

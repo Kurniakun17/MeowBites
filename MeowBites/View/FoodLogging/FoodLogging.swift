@@ -12,46 +12,25 @@ struct FoodLogging: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var modelContext
     @Query var foodsList: [FoodItem]
-    @ObservedObject var viewModel = FoodLogViewModel()
-    @State var filter = "Carbs"
-    @State var characterMood = ""
-    @State var isCooldownActive = false
-    
-    func updateCharacter() {
-        if viewModel.calorieCount > 500 {
-            characterMood = "_overcal"
-            return
-        }
-        
-        if !isCooldownActive {
-            characterMood = "_love"
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                isCooldownActive = false
-                if viewModel.calorieCount < 500 {
-                    characterMood = ""
-                }
-            }
-        }
-        
-        isCooldownActive = true
-    }
-    
+    @EnvironmentObject var viewModel: FoodLogViewModel
+
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 ScrollView(.vertical) {
                     VStack(alignment: .leading, spacing: 16) {
+//                       MARK: Seed data
                         HStack {
                             Button(action: {
                                 removeSamples()
-                                
+
                             }) {
                                 Text("Remove Item")
                             }
                             Spacer()
                             Button(action: {
-                                addSamples()
-                                
+//                                addSamples()
+                                viewModel.addToModelContext(modelContext: modelContext)
                             }) {
                                 Text("Add Item")
                             }
@@ -60,35 +39,45 @@ struct FoodLogging: View {
                             HStack(spacing: 10) {
                                 ForEach(viewModel.ChipList) {
                                     chip in FilterChip(
-                                        filter: filter,
+                                        filter: viewModel.filter,
                                         name: chip.name,
                                         onTap: {
-                                            filter = chip.name
+                                            viewModel.filter = chip.name
                                         }
                                     )
                                 }
                             }
                         }
                         .padding(.leading, 20)
-                        
+
                         VStack(alignment: .leading, spacing: 20) {
                             Text("Try these!")
                                 .font(.title)
                                 .fontWeight(.bold)
 
-//                            MARK: Option 1
-
-                            ForEach(foodsList) {
-                                food in FoodCardView(name: food.name, portion: food.portion, units: food.units, calorie: food.calorie)
+                            ForEach(foodsList.chunked(into: 2), id: \.self) { rowItems in
+                                HStack(spacing: 20) {
+                                    ForEach(rowItems) { food in
+                                        FoodCardView(
+                                            id: food.id,
+                                            name: food.name,
+                                            portion: food.portion,
+                                            units: food.units,
+                                            calorie: food.calorie,
+                                            serving: (viewModel.getFoodServing(id: food.id) != nil) ? viewModel.getFoodServing(id: food.id)!.serving : 0,
+                                            addServing: { viewModel.addServing(for: food)
+                                            },
+                                            removeServing: { viewModel.removeServing(for: food)
+                                            }
+                                        )
+                                        .environmentObject(viewModel)
+                                    }
+                                    // Fill remaining space if there's only one item in the row
+                                    if rowItems.count == 1 {
+                                        Spacer()
+                                    }
+                                }
                             }
-                            
-//                            MARK: Option 2
-
-//                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-//                                ForEach(foodsList) {
-//                                    food in FoodCardView(name: food.name, portion: food.portion, units: food.units, calorie: food.calorie)
-//                                }
-//                            }
                         }
                         .padding(20)
                     }
@@ -98,17 +87,14 @@ struct FoodLogging: View {
                 .padding(.bottom, 200)
             }
             .background(.white)
-            
+
             VStack {
                 Spacer()
                 LogSummary()
             }
             .ignoresSafeArea()
         }
-     
-        .onAppear {
-            print(foodsList)
-        }
+
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -121,13 +107,13 @@ struct FoodLogging: View {
                         .padding(14)
                 }
             }
-            
+
             ToolbarItem(placement: .principal) {
                 Text("Food")
-                    .font(.title)
+                    .font(.title2)
                     .fontWeight(.bold)
             }
-            
+
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {}) {
                     Image(systemName: "magnifyingglass")
@@ -152,7 +138,7 @@ struct FoodLogging: View {
             imgName: "nasi_goreng",
             type: "Carbs"
         )
-        
+
         let ikanGoreng =
             FoodItem(
                 id: 2,
@@ -166,7 +152,7 @@ struct FoodLogging: View {
                 imgName: "ikan_goreng",
                 type: "Protein"
             )
-        
+
         let ayamGeprek =
             FoodItem(
                 id: 3,
@@ -180,12 +166,81 @@ struct FoodLogging: View {
                 imgName: "Ayam Geprek",
                 type: "Protein"
             )
+        
+        let mieGoreng = FoodItem(
+            id: 4,
+            name: "Mie Goreng",
+            calorie: 350.0,
+            sugar: 4.0,
+            salt: 400.0,
+            fat: 8.0,
+            portion: 1.0,
+            units: "serving",
+            imgName: "mie_goreng",
+            type: "Carbs"
+        )
 
-        modelContext.insert(nasiGoreng)
-        modelContext.insert(ikanGoreng)
-        modelContext.insert(ayamGeprek)
+        let sateAyam = FoodItem(
+            id: 5,
+            name: "Sate Ayam",
+            calorie: 300.0,
+            sugar: 3.0,
+            salt: 200.0,
+            fat: 12.0,
+            portion: 1.0,
+            units: "serving",
+            imgName: "sate_ayam",
+            type: "Protein"
+        )
+
+        let saladSayur = FoodItem(
+            id: 6,
+            name: "Salad Sayur",
+            calorie: 120.0,
+            sugar: 2.0,
+            salt: 100.0,
+            fat: 5.0,
+            portion: 1.0,
+            units: "serving",
+            imgName: "salad_sayur",
+            type: "Veggie"
+        )
+
+        let jusJeruk = FoodItem(
+            id: 7,
+            name: "Jus Jeruk",
+            calorie: 150.0,
+            sugar: 25.0,
+            salt: 10.0,
+            fat: 0.5,
+            portion: 1.0,
+            units: "serving",
+            imgName: "jus_jeruk",
+            type: "Beverages"
+        )
+
+        let rendangDaging = FoodItem(
+            id: 8,
+            name: "Rendang Daging",
+            calorie: 400.0,
+            sugar: 3.0,
+            salt: 600.0,
+            fat: 15.0,
+            portion: 1.0,
+            units: "serving",
+            imgName: "rendang_daging",
+            type: "Protein"
+        )
+
+
+        modelContext.insert(mieGoreng)
+        modelContext.insert(sateAyam)
+        modelContext.insert(saladSayur)
+        modelContext.insert(saladSayur)
+        modelContext.insert(jusJeruk)
+        modelContext.insert(rendangDaging)
     }
-    
+
     func removeSamples() {
         for food in foodsList {
             modelContext.delete(food)
@@ -195,6 +250,7 @@ struct FoodLogging: View {
 
 #Preview {
     FoodLogging()
+        .environmentObject(FoodLogViewModel())
 }
 
 //
