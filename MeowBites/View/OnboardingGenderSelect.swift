@@ -127,7 +127,7 @@ struct OnboardingGenderSelect: View {
                 }
                 .padding(.bottom, 136)
 
-                NavigationLink(destination: {},
+                NavigationLink(destination: OnboardingAge(),
                                label: {
                                    Text("Next")
                                        .font(.system(size: 24, weight: .bold))
