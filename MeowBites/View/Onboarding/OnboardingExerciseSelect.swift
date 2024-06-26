@@ -11,6 +11,8 @@ struct OnboardingExerciseSelect: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
 
+    @StateObject var viewModel = OnboardingViewModel()
+
     @Binding var userPersonalData: UserPersonalData
 
     @State var isDisabled = true
@@ -198,9 +200,11 @@ struct OnboardingExerciseSelect: View {
                             })
                         })
 
-                        Button(action: {
+                        NavigationLink(destination: OnboardingDoneSet().onAppear {
                             userPersonalData.exerciseRate = exerciseRate
                             context.insert(userPersonalData)
+                            let calculatedBMR = viewModel.calculateBMR(userPersonalData: userPersonalData)
+                            viewModel.addBMR(context: context, BMRData: calculatedBMR)
                         }, label: {
                             Text("Calculate")
                                 .font(.system(size: 24, weight: .bold))
@@ -210,22 +214,6 @@ struct OnboardingExerciseSelect: View {
                                 .foregroundStyle(isDisabled ? .disableGrey : .white)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
                         })
-
-//                        NavigationLink(destination: OnboardingDoneSet(), label: {
-//                            Button(action: {
-//                                //                        step = 3
-//                                //                        print(selectedAge)
-//                            }, label: {
-//                                Text("Calculate")
-//                                    .font(.system(size: 24, weight: .bold))
-//                                    .padding(.vertical, 20)
-//                                    .frame(width: 239)
-//                                    .background(isDisabled ? .lightDisableGrey : .prime)
-//                                    .foregroundStyle(isDisabled ? .disableGrey : .white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 16))
-//                            })
-//                            .disabled(isDisabled)
-//                        })
                         .disabled(isDisabled)
                     }
                 }
@@ -240,10 +228,9 @@ struct OnboardingExerciseSelect: View {
                 maxHeight: .infinity,
                 alignment: .topLeading
             )
-            .onAppear {
-                print(userPersonalData.gender)
-            }
         }
+        .navigationBarBackButtonHidden()
+        .environmentObject(viewModel)
     }
 }
 

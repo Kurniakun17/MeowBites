@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */; };
+		204B1B472C2C7AFF009039E7 /* BMRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B462C2C7AFF009039E7 /* BMRModel.swift */; };
+		204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B492C2C9DF3009039E7 /* Formatter.swift */; };
 		20FCA8922C2BBF4600E3546E /* OnboardingStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8912C2BBF4600E3546E /* OnboardingStart.swift */; };
 		20FCA8942C2BC28E00E3546E /* OnboardingGenderSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8932C2BC28E00E3546E /* OnboardingGenderSelect.swift */; };
 		20FCA8962C2BC35100E3546E /* OnboardingAge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8952C2BC35100E3546E /* OnboardingAge.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		204B1B462C2C7AFF009039E7 /* BMRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRModel.swift; sourceTree = "<group>"; };
+		204B1B492C2C9DF3009039E7 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		20FCA8912C2BBF4600E3546E /* OnboardingStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStart.swift; sourceTree = "<group>"; };
 		20FCA8932C2BC28E00E3546E /* OnboardingGenderSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingGenderSelect.swift; sourceTree = "<group>"; };
 		20FCA8952C2BC35100E3546E /* OnboardingAge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAge.swift; sourceTree = "<group>"; };
@@ -48,6 +54,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		204B1B432C2C7A3B009039E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		204B1B482C2C9DDF009039E7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				204B1B492C2C9DF3009039E7 /* Formatter.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		20FCA8902C2BBF2D00E3546E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */,
+				204B1B462C2C7AFF009039E7 /* BMRModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,6 +120,8 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
+				204B1B482C2C9DDF009039E7 /* Helper */,
+				204B1B432C2C7A3B009039E7 /* ViewModel */,
 				20FCA89C2C2BE74C00E3546E /* Model */,
 				20FCA8902C2BBF2D00E3546E /* View */,
 				F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */,
@@ -186,13 +211,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				20FCA8A02C2C0AF300E3546E /* OnboardingDoneSet.swift in Sources */,
+				204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */,
 				20FCA89A2C2BC4A200E3546E /* OnboardingPersonalData.swift in Sources */,
 				20FCA8962C2BC35100E3546E /* OnboardingAge.swift in Sources */,
 				20FCA8982C2BC3C400E3546E /* OnboardingHeightWeight.swift in Sources */,
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
 				20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */,
 				20FCA8922C2BBF4600E3546E /* OnboardingStart.swift in Sources */,
+				204B1B472C2C7AFF009039E7 /* BMRModel.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
+				204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */,
 				20FCA8A22C2C33B100E3546E /* OnboardingExerciseSelect.swift in Sources */,
 				20FCA8942C2BC28E00E3546E /* OnboardingGenderSelect.swift in Sources */,
 			);

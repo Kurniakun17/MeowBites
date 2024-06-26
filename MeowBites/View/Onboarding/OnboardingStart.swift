@@ -9,6 +9,11 @@ import SwiftData
 import SwiftUI
 
 struct OnboardingStart: View {
+    @Environment(\.modelContext) private var context
+
+    @Query var personalDatas: [UserPersonalData]
+    @Query var bmrDatas: [BMRData]
+
     @State var isPageOne = true
 
     @State var step = 1
@@ -47,6 +52,16 @@ struct OnboardingStart: View {
                                 .multilineTextAlignment(.center)
                         }
                         .padding(.horizontal, 32)
+                        Button(action: {
+                            for item in personalDatas {
+                                context.delete(item)
+                            }
+                            for item in bmrDatas {
+                                context.delete(item)
+                            }
+                        }, label: {
+                            Text("Delete Data")
+                        })
 
                         NavigationLink(destination: OnboardingPersonalData(step: $step), label: {
                             Text("Start calculate BMR")
