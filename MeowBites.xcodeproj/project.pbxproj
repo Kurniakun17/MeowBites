@@ -11,6 +11,21 @@
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
 		F6890EAD2C2BBB330042C151 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EAC2C2BBB330042C151 /* Preview Assets.xcassets */; };
+		F6890EB72C2BBE100042C151 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EB62C2BBE100042C151 /* FoodModel.swift */; };
+		F6890EBA2C2BBE2C0042C151 /* ChipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EB92C2BBE2C0042C151 /* ChipModel.swift */; };
+		F6890EBE2C2BBE6E0042C151 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EBD2C2BBE6E0042C151 /* Home.swift */; };
+		F6890EC12C2BBE9C0042C151 /* FoodLogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EC02C2BBE9C0042C151 /* FoodLogging.swift */; };
+		F6890EC32C2BBEA90042C151 /* FoodPlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EC22C2BBEA90042C151 /* FoodPlate.swift */; };
+		F6890EC62C2BBEC60042C151 /* FoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EC52C2BBEC60042C151 /* FoodCardView.swift */; };
+		F6890EC82C2BBED80042C151 /* LogSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EC72C2BBED80042C151 /* LogSummary.swift */; };
+		F6890ECA2C2BBEEB0042C151 /* NutritionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */; };
+		F6890ECC2C2BBEFB0042C151 /* FilterChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */; };
+		F6890ECE2C2BBF1A0042C151 /* FoodLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */; };
+		F6890ED02C2BBF2E0042C151 /* FoodServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */; };
+		F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ED12C2BE4880042C151 /* PlateCardView.swift */; };
+		F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */; };
+		F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FB2C2C527D00C53D53 /* FoodList.swift */; };
+		F6D984002C2C638600C53D53 /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FF2C2C638600C53D53 /* FoodDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +34,21 @@
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F6890EA92C2BBB330042C151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6890EAC2C2BBB330042C151 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F6890EB62C2BBE100042C151 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		F6890EB92C2BBE2C0042C151 /* ChipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipModel.swift; sourceTree = "<group>"; };
+		F6890EBD2C2BBE6E0042C151 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		F6890EC02C2BBE9C0042C151 /* FoodLogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogging.swift; sourceTree = "<group>"; };
+		F6890EC22C2BBEA90042C151 /* FoodPlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPlate.swift; sourceTree = "<group>"; };
+		F6890EC52C2BBEC60042C151 /* FoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCardView.swift; sourceTree = "<group>"; };
+		F6890EC72C2BBED80042C151 /* LogSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummary.swift; sourceTree = "<group>"; };
+		F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionBar.swift; sourceTree = "<group>"; };
+		F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChip.swift; sourceTree = "<group>"; };
+		F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogViewModel.swift; sourceTree = "<group>"; };
+		F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodServing.swift; sourceTree = "<group>"; };
+		F6890ED12C2BE4880042C151 /* PlateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateCardView.swift; sourceTree = "<group>"; };
+		F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPlateModel.swift; sourceTree = "<group>"; };
+		F6D983FB2C2C527D00C53D53 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
+		F6D983FF2C2C638600C53D53 /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +81,9 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
+				F6890EB32C2BBDFB0042C151 /* ViewModel */,
+				F6890EB52C2BBE060042C151 /* Model */,
+				F6890EB42C2BBE000042C151 /* View */,
 				F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */,
 				F6890EA72C2BBB320042C151 /* ContentView.swift */,
 				F6890EA92C2BBB330042C151 /* Assets.xcassets */,
@@ -65,6 +98,74 @@
 				F6890EAC2C2BBB330042C151 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F6890EB32C2BBDFB0042C151 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6890EB42C2BBE000042C151 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6D983FD2C2C637100C53D53 /* FoodDetail */,
+				F6890EC42C2BBEB60042C151 /* Components */,
+				F6890EBF2C2BBE870042C151 /* FoodLogging */,
+				F6890EBC2C2BBE650042C151 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6890EB52C2BBE060042C151 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6890EB62C2BBE100042C151 /* FoodModel.swift */,
+				F6890EB92C2BBE2C0042C151 /* ChipModel.swift */,
+				F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */,
+				F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6890EBC2C2BBE650042C151 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F6890EBD2C2BBE6E0042C151 /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F6890EBF2C2BBE870042C151 /* FoodLogging */ = {
+			isa = PBXGroup;
+			children = (
+				F6890EC02C2BBE9C0042C151 /* FoodLogging.swift */,
+				F6890EC22C2BBEA90042C151 /* FoodPlate.swift */,
+			);
+			path = FoodLogging;
+			sourceTree = "<group>";
+		};
+		F6890EC42C2BBEB60042C151 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F6890EC52C2BBEC60042C151 /* FoodCardView.swift */,
+				F6890EC72C2BBED80042C151 /* LogSummary.swift */,
+				F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */,
+				F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */,
+				F6890ED12C2BE4880042C151 /* PlateCardView.swift */,
+				F6D983FB2C2C527D00C53D53 /* FoodList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F6D983FD2C2C637100C53D53 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F6D983FF2C2C638600C53D53 /* FoodDetail.swift */,
+			);
+			path = FoodDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +238,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6890ED02C2BBF2E0042C151 /* FoodServing.swift in Sources */,
+				F6890EB72C2BBE100042C151 /* FoodModel.swift in Sources */,
+				F6890EC82C2BBED80042C151 /* LogSummary.swift in Sources */,
+				F6890EC32C2BBEA90042C151 /* FoodPlate.swift in Sources */,
+				F6D984002C2C638600C53D53 /* FoodDetail.swift in Sources */,
+				F6890ECE2C2BBF1A0042C151 /* FoodLogViewModel.swift in Sources */,
+				F6890EC62C2BBEC60042C151 /* FoodCardView.swift in Sources */,
+				F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */,
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
+				F6890EBE2C2BBE6E0042C151 /* Home.swift in Sources */,
+				F6890ECA2C2BBEEB0042C151 /* NutritionBar.swift in Sources */,
+				F6890EC12C2BBE9C0042C151 /* FoodLogging.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
+				F6890EBA2C2BBE2C0042C151 /* ChipModel.swift in Sources */,
+				F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */,
+				F6890ECC2C2BBEFB0042C151 /* FilterChip.swift in Sources */,
+				F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +396,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +427,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
