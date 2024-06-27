@@ -11,7 +11,8 @@ import SwiftUI
 struct FoodPlate: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: FoodLogViewModel
-    @Query var plates: [Plate]
+    @Query private var plates: [Plate]
+    @State var plateSort = SortDescriptor(\Plate.food.calorie)
 
     var body: some View {
         ZStack {
@@ -27,26 +28,26 @@ struct FoodPlate: View {
                                 HStack {
                                     Text("Sort by:")
 
-                                    Picker("Select a paint color", selection: $viewModel.sortBy) {
+                                    Picker("Select a paint color", selection: $plateSort) {
                                         Image("calorie")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag("calorie")
+                                            .tag(SortDescriptor(\Plate.food.calorie))
 
                                         Image("sugar")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag("sugar")
+                                            .tag(SortDescriptor(\Plate.food.sugar))
 
                                         Image("salt")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag("salt")
+                                            .tag(SortDescriptor(\Plate.food.salt))
 
                                         Image("fat")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag("fat")
+                                            .tag(SortDescriptor(\Plate.food.fat))
                                     }
                                     .pickerStyle(.menu)
                                     .padding(.vertical, 5)
@@ -57,13 +58,7 @@ struct FoodPlate: View {
                                     .offset(x: -20)
                                 }
 
-                                VStack(spacing: 10) {
-                                    ForEach(plates) { plate in
-                                        PlateCardView(
-                                            food: plate.food
-                                        )
-                                    }
-                                }
+                                PlateList(sort: plateSort)
                             }
                         }
                         .padding(20)
@@ -111,6 +106,7 @@ struct FoodPlate: View {
             }
             .ignoresSafeArea()
         }
+
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

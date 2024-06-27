@@ -28,7 +28,7 @@ struct FoodDetail: View {
 
     var body: some View {
         ZStack {
-            VStack(spacing: 24) {
+            VStack(spacing: 24) {   
                 HStack(spacing: 12) {
                     RoundedRectangle(cornerRadius: 12)
                         .fill(.black)

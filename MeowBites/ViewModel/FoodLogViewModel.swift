@@ -206,6 +206,21 @@ class FoodLogViewModel: ObservableObject {
 
         updateMood()
     }
+    
+    func generateSortDescriptor() -> SortDescriptor<Plate> {
+        switch sortBy {
+            case "calorie":
+                return SortDescriptor(\Plate.food.calorie)
+            case "sugar":
+                return SortDescriptor(\Plate.food.sugar)
+            case "salt":
+                return SortDescriptor(\Plate.food.salt)
+            case "fat":
+                return SortDescriptor(\Plate.food.fat)
+            default:
+                return SortDescriptor(\Plate.food.calorie)
+        }
+    }
 
     func updateMood() {
         if calorieCount > 1700 {
