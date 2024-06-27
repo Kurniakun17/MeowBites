@@ -1,3 +1,10 @@
+//
+//  MeowBitesApp.swift
+//  MeowBites
+//
+//  Created by Kurnia Kharisma Agung Samiadjie on 26/06/24.
+//
+
 import SwiftData
 import SwiftUI
 
@@ -7,6 +14,6 @@ struct MeowBitesApp: App {
         WindowGroup {
             Home()
         }
-        .modelContainer(for: FoodItem.self)
+        .modelContainer(for: [UserPersonalData.self, BMRData.self, FoodItem.self])
     }
 }
