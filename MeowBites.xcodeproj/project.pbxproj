@@ -133,12 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				204B1B482C2C9DDF009039E7 /* Helper */,
-				20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */,
-				204B1B462C2C7AFF009039E7 /* BMRModel.swift */,
-				204B1B4D2C2CF681009039E7 /* UserCatModel.swift */,
-				20FCA89B2C2BC6D400E3546E /* Onboarding */,
-				204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */,
-				204B1B4F2C2CF6F8009039E7 /* UserCatViewModel.swift */,
 				F6890EB32C2BBDFB0042C151 /* ViewModel */,
 				F6890EB52C2BBE060042C151 /* Model */,
 				F6890EB42C2BBE000042C151 /* View */,
@@ -161,6 +155,8 @@
 		F6890EB32C2BBDFB0042C151 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */,
+				204B1B4F2C2CF6F8009039E7 /* UserCatViewModel.swift */,
 				F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */,
 			);
 			path = ViewModel;
@@ -169,6 +165,7 @@
 		F6890EB42C2BBE000042C151 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20FCA89B2C2BC6D400E3546E /* Onboarding */,
 				F6D983FD2C2C637100C53D53 /* FoodDetail */,
 				F6890EC42C2BBEB60042C151 /* Components */,
 				F6890EBF2C2BBE870042C151 /* FoodLogging */,
@@ -180,6 +177,9 @@
 		F6890EB52C2BBE060042C151 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */,
+				204B1B462C2C7AFF009039E7 /* BMRModel.swift */,
+				204B1B4D2C2CF681009039E7 /* UserCatModel.swift */,
 				F6890EB62C2BBE100042C151 /* FoodModel.swift */,
 				F6890EB92C2BBE2C0042C151 /* ChipModel.swift */,
 				F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */,
