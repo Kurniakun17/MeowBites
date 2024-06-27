@@ -5,9 +5,16 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 26/06/24.
 //
 
-import SwiftUI
+import Foundation
+import SwiftData
 
-struct FoodPlateModel{
-    var id: Int
-    var amount: Int
-}
+// @Model
+//class dailyFoodPlate: Identifiable {
+//    var foodItem: [FoodItem] = []
+//    var date: Date
+//
+//    init(foodItem: [FoodItem], amount: Int) {
+//        self.foodItem = foodItem
+//        self.amount = amount
+//    }
+//}

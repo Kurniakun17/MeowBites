@@ -5,12 +5,13 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 23/06/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct FoodPlate: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: FoodLogViewModel
-    @State var sortValue = "calorie"
+    @Query var plates: [Plate]
 
     var body: some View {
         ZStack {
@@ -26,26 +27,26 @@ struct FoodPlate: View {
                                 HStack {
                                     Text("Sort by:")
 
-                                    Picker("Select a paint color", selection: $sortValue) {
+                                    Picker("Select a paint color", selection: $viewModel.sortBy) {
                                         Image("calorie")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.calorie))
+                                            .tag("calorie")
 
                                         Image("sugar")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.sugar))
+                                            .tag("sugar")
 
                                         Image("salt")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.salt))
+                                            .tag("salt")
 
                                         Image("fat")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.fat))
+                                            .tag("fat")
                                     }
                                     .pickerStyle(.menu)
                                     .padding(.vertical, 5)
@@ -57,22 +58,9 @@ struct FoodPlate: View {
                                 }
 
                                 VStack(spacing: 10) {
-                                    ForEach(viewModel.selectedFood) { item in
+                                    ForEach(plates) { plate in
                                         PlateCardView(
-                                            name: item.food.name,
-                                            calorie: item.food.calorie,
-                                            sugar: item.food.sugar,
-                                            salt: item.food.salt,
-                                            fat: item.food.fat,
-                                            serving: item.serving,
-                                            portion: item.food.portion,
-                                            units: item.food.units,
-                                            addServing: {
-                                                viewModel.addServing(for: item.food)
-                                            },
-                                            removeServing: {
-                                                viewModel.removeServing(for: item.food)
-                                            }
+                                            food: plate.food
                                         )
                                     }
                                 }

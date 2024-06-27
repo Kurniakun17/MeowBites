@@ -11,19 +11,19 @@ import SwiftUI
 struct FoodDetail: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: FoodLogViewModel
-    @Query var foodsList: [FoodItem]
-    var id: Int
-
-    private var food: FoodItem? {
-        foodsList.first(where: { $0.id == id })
+    @Environment(\.modelContext) var modelContext
+    @Query var plates: [Plate]
+    var food: FoodItem
+    var serving: Int {
+        plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
     func addServing() {
-        viewModel.addServing(for: food!)
+        viewModel.addServing(modelContext: modelContext, food: food, plates: plates)
     }
 
     func removeServing() {
-        viewModel.removeServing(for: food!)
+        viewModel.removeServing(modelContext: modelContext, food: food, plates: plates)
     }
 
     var body: some View {
@@ -35,14 +35,14 @@ struct FoodDetail: View {
                         .frame(width: 110, height: 110)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        Text(foodsList.first(where: { $0.id == id })!.name)
+                        Text(food.name)
                             .font(.headline)
                             .fontWeight(.bold)
 
                         HStack {
                             Image(systemName: "scalemass.fill")
                                 .foregroundStyle(.gray)
-                            Text("\(String(format: "%.1f", food!.portion))g/\(food!.units)")
+                            Text("\(String(format: "%.1f", food.portion))g/\(food.units)")
                                 .font(.footnote)
                                 .foregroundStyle(.gray)
                         }
@@ -52,7 +52,7 @@ struct FoodDetail: View {
                 }
 
                 VStack {
-                    if food!.calorie > 400 {
+                    if food.calorie > 400 {
                         HStack(spacing: 0) {
                             Image("calorie")
                                 .resizable()
@@ -72,7 +72,7 @@ struct FoodDetail: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    if food!.sugar > 22.5 {
+                    if food.sugar > 22.5 {
                         HStack(spacing: 0) {
                             Image("sugar")
                                 .resizable()
@@ -92,7 +92,7 @@ struct FoodDetail: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    if food!.salt / 1000 > 1.5 {
+                    if food.salt / 1000 > 1.5 {
                         HStack(spacing: 0) {
                             Image("salt")
                                 .resizable()
@@ -112,7 +112,7 @@ struct FoodDetail: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     }
 
-                    if food!.fat > 17.5 {
+                    if food.fat > 17.5 {
                         HStack(spacing: 0) {
                             Image("fat")
                                 .resizable()
@@ -137,7 +137,7 @@ struct FoodDetail: View {
                     VStack(spacing: 16) {
                         NutritionBar(type: "calorie", percentage: 20)
                         VStack(spacing: 0) {
-                            Text("1400")
+                            Text("\(String(format: "%.0f", food.calorie))")
                                 .font(.callout)
 
                             Text("kcal")
@@ -149,7 +149,7 @@ struct FoodDetail: View {
                     VStack(spacing: 16) {
                         NutritionBar(type: "sugar", percentage: 20)
                         VStack(spacing: 0) {
-                            Text("5g")
+                            Text("\(String(format: "%.1f", food.sugar))")
                                 .font(.callout)
 
                             Text("Sugar")
@@ -161,7 +161,7 @@ struct FoodDetail: View {
                     VStack(spacing: 16) {
                         NutritionBar(type: "salt", percentage: 20)
                         VStack(spacing: 0) {
-                            Text("5g")
+                            Text("\(String(format: "%.1f", food.salt))")
                                 .font(.callout)
 
                             Text("Salt")
@@ -171,9 +171,11 @@ struct FoodDetail: View {
                     .scaleEffect(0.9)
                     Spacer()
                     VStack(spacing: 16) {
+//                        MARK: Percentage suit it with fikri's
+
                         NutritionBar(type: "fat", percentage: 20)
                         VStack(spacing: 0) {
-                            Text("20g")
+                            Text("\(String(format: "%.1f", food.fat))")
                                 .font(.callout)
 
                             Text("Fat")
@@ -207,7 +209,7 @@ struct FoodDetail: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                             }
 
-                            Text(String(viewModel.getFoodServing(id: id)?.serving ?? 0))
+                            Text(String(serving))
                                 .font(.subheadline)
                                 .fontWeight(.bold)
 
@@ -269,5 +271,16 @@ struct FoodDetail: View {
 }
 
 #Preview {
-    FoodDetail(id: 1)
+    FoodDetail(food: FoodItem(
+        id: 1,
+        name: "Nasi Goreng",
+        calorie: 500.0,
+        sugar: 5.0,
+        salt: 500.0,
+        fat: 10.0,
+        portion: 1.0,
+        units: "serving",
+        imgName: "nasi_goreng",
+        type: "Carbs"
+    ))
 }
