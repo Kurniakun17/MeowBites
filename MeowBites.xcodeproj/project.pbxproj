@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30D2C2C1080005A69AA /* Profile.swift */; };
+		3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */; };
 		204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */; };
 		204B1B472C2C7AFF009039E7 /* BMRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B462C2C7AFF009039E7 /* BMRModel.swift */; };
 		204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B492C2C9DF3009039E7 /* Formatter.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B3CB30D2C2C1080005A69AA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiary.swift; sourceTree = "<group>"; };
 		204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		204B1B462C2C7AFF009039E7 /* BMRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRModel.swift; sourceTree = "<group>"; };
 		204B1B492C2C9DF3009039E7 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -60,6 +64,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B3CB30C2C2C105B005A69AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B3CB30D2C2C1080005A69AA /* Profile.swift */,
+				3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */,
 		204B1B432C2C7A3B009039E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +138,7 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
+				3B3CB30C2C2C105B005A69AA /* View */,
 				204B1B482C2C9DDF009039E7 /* Helper */,
 				204B1B432C2C7A3B009039E7 /* ViewModel */,
 				20FCA89C2C2BE74C00E3546E /* Model */,
@@ -226,6 +236,9 @@
 				204B1B502C2CF6F8009039E7 /* UserCatViewModel.swift in Sources */,
 				20FCA8982C2BC3C400E3546E /* OnboardingHeightWeight.swift in Sources */,
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
+				3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */,
+				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
+				3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */,
 				204B1B4C2C2C9E8A009039E7 /* OnboardingCatName.swift in Sources */,
 				204B1B4E2C2CF681009039E7 /* UserCatModel.swift in Sources */,
 				20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */,
@@ -376,6 +389,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -405,6 +419,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
