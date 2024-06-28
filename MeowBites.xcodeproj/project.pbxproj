@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30D2C2C1080005A69AA /* Profile.swift */; };
-		3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */; };
 		204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */; };
 		204B1B472C2C7AFF009039E7 /* BMRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B462C2C7AFF009039E7 /* BMRModel.swift */; };
 		204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B492C2C9DF3009039E7 /* Formatter.swift */; };
@@ -23,6 +21,8 @@
 		20FCA89E2C2BE77200E3546E /* UserPersonalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */; };
 		20FCA8A02C2C0AF300E3546E /* OnboardingDoneSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA89F2C2C0AF300E3546E /* OnboardingDoneSet.swift */; };
 		20FCA8A22C2C33B100E3546E /* OnboardingExerciseSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */; };
+		3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30D2C2C1080005A69AA /* Profile.swift */; };
+		3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */; };
 		F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */; };
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
@@ -45,8 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B3CB30D2C2C1080005A69AA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
-		3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiary.swift; sourceTree = "<group>"; };
 		204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		204B1B462C2C7AFF009039E7 /* BMRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRModel.swift; sourceTree = "<group>"; };
 		204B1B492C2C9DF3009039E7 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -61,6 +59,8 @@
 		20FCA89D2C2BE77200E3546E /* UserPersonalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPersonalDataModel.swift; sourceTree = "<group>"; };
 		20FCA89F2C2C0AF300E3546E /* OnboardingDoneSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDoneSet.swift; sourceTree = "<group>"; };
 		20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExerciseSelect.swift; sourceTree = "<group>"; };
+		3B3CB30D2C2C1080005A69AA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiary.swift; sourceTree = "<group>"; };
 		F6890EA22C2BBB320042C151 /* MeowBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowBitesApp.swift; sourceTree = "<group>"; };
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,8 +136,6 @@
 		F6890EA42C2BBB320042C151 /* MeowBites */ = {
 			isa = PBXGroup;
 			children = (
-				3B3CB30D2C2C1080005A69AA /* Profile.swift */,
-				3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */,
 				204B1B482C2C9DDF009039E7 /* Helper */,
 				F6890EB32C2BBDFB0042C151 /* ViewModel */,
 				F6890EB52C2BBE060042C151 /* Model */,
@@ -171,6 +169,8 @@
 		F6890EB42C2BBE000042C151 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3B3CB30D2C2C1080005A69AA /* Profile.swift */,
+				3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */,
 				20FCA89B2C2BC6D400E3546E /* Onboarding */,
 				F6D983FD2C2C637100C53D53 /* FoodDetail */,
 				F6890EC42C2BBEB60042C151 /* Components */,
