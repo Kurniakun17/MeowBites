@@ -5,20 +5,25 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 26/06/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct PlateCardView: View {
-    var name: String
-    var calorie: Double
-    var sugar: Double
-    var salt: Double
-    var fat: Double
-    var serving: Int
-    var portion: Double
-    var units: String
+    @Query var plates: [Plate]
+    @Environment(\.modelContext) var modelContext
+    @EnvironmentObject var viewModel: FoodLogViewModel
+    var food: FoodItem
+    var amount: Int {
+        plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+    }
 
-    var addServing: () -> Void
-    var removeServing: () -> Void
+    func addServing() {
+        viewModel.addServing(modelContext: modelContext, food: food, plates: plates)
+    }
+
+    func removeServing() {
+        viewModel.removeServing(modelContext: modelContext, food: food, plates: plates)
+    }
 
     var body: some View {
         HStack(spacing: 10) {
@@ -27,7 +32,7 @@ struct PlateCardView: View {
 
             VStack(alignment: .leading) {
                 HStack {
-                    Text(name)
+                    Text(food.name)
                         .font(.headline)
                         .fontWeight(.bold)
                     Spacer()
@@ -35,11 +40,11 @@ struct PlateCardView: View {
                         Image("calorie")
                             .resizable()
                             .frame(width: 12, height: 12)
-                        Text("\(String(format: "%.0f", calorie)) cal")
+                        Text("\(String(format: "%.0f", food.calorie)) cal")
                             .font(.footnote)
                     }
                 }
-                Text("\(String(format: "%.0f", portion)) g/\(units)")
+                Text("\(String(format: "%.0f", food.portion)) g/\(food.units)")
                     .foregroundStyle(.gray)
                     .font(.footnote)
                 HStack {
@@ -48,7 +53,7 @@ struct PlateCardView: View {
                             .resizable()
                             .frame(width: 16, height: 16)
                             .saturation(0.4)
-                        Text("\(String(format: "%.1f", sugar)) g")
+                        Text("\(String(format: "%.1f", food.sugar)) g")
                             .font(.footnote)
                     }
 
@@ -57,7 +62,7 @@ struct PlateCardView: View {
                             .resizable()
                             .frame(width: 16, height: 16)
                             .saturation(0.4)
-                        Text("\(String(format: "%.1f", salt/1000)) g")
+                        Text("\(String(format: "%.1f", food.salt / 1000)) g")
                             .font(.footnote)
                     }
 
@@ -66,7 +71,7 @@ struct PlateCardView: View {
                             .resizable()
                             .frame(width: 16, height: 16)
                             .saturation(0.4)
-                        Text("\(String(format: "%.1f", fat)) g")
+                        Text("\(String(format: "%.1f", food.fat)) g")
                             .font(.footnote)
                     }
                 }
@@ -83,7 +88,7 @@ struct PlateCardView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
 
-                    Text(String(serving))
+                    Text(String(amount))
                         .font(.subheadline)
                         .fontWeight(.bold)
 

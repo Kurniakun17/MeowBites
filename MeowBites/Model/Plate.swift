@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import SwiftData
 
-class FoodServing: Identifiable {
+@Model
+class Plate: Identifiable {
     var food: FoodItem
-    var serving: Int
+    var amount: Int
 
-    init(food: FoodItem, serving: Int = 0) {
+    init(food: FoodItem, amount: Int = 0) {
         self.food = food
-        self.serving = serving
+        self.amount = amount
     }
 }
 

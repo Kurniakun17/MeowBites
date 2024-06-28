@@ -5,23 +5,44 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 23/06/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct FoodCardView: View {
     @EnvironmentObject var viewModel: FoodLogViewModel
-    var id: Int
-    var name: String
-    var portion: Double
-    var units: String
-    var calorie: Double
-    var serving = 0
-    var addServing: () -> Void
-    var removeServing: () -> Void
+    @Environment(\.modelContext) var modelContext
+    @Query var plates: [Plate]
+    var food: FoodItem
+    var amount: Int {
+        plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+    }
+
+    var sort: String
+
+    func nutrientValue() -> String {
+        if sort == "fat" {
+            return String(format: "%.1f", food.fat) + "g"
+        } else if sort == "salt" {
+            return String(format: "%.1f", food.salt / 1000) + "g"
+        } else if sort == "sugar" {
+            return String(format: "%.1f", food.sugar) + "g"
+        } else {
+            return String(format: "%.1f", food.calorie)
+        }
+    }
+
+    func addServing() {
+        viewModel.addServing(modelContext: modelContext, food: food, plates: plates)
+    }
+
+    func removeServing() {
+        viewModel.removeServing(modelContext: modelContext, food: food, plates: plates)
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             NavigationLink(destination: {
-                FoodDetail(id: id)
+                FoodDetail(food: food)
             }) {
                 HStack {
                     RoundedRectangle(cornerRadius: 12)
@@ -31,30 +52,30 @@ struct FoodCardView: View {
             }
 
             VStack(alignment: .leading) {
-                NavigationLink(destination: { FoodDetail(id: id) }) {
+                NavigationLink(destination: { FoodDetail(food: food) }) {
                     VStack(alignment: .leading) {
-                        Text(name)
+                        Text(food.name)
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundStyle(.black)
 
                         HStack(spacing: 4) {
-                            Image("calorie")
+                            Image(sort)
                                 .resizable()
                                 .frame(width: 16, height: 16)
-                            Text(String(calorie) + " calories")
+                            Text(String(nutrientValue()) + " " + sort)
                                 .fontWeight(.bold)
                                 .font(.caption)
                         }
 
-                        Text("\(String(format: "%.0f", portion))g / \(units)")
+                        Text("\(String(format: "%.0f", food.portion))g / \(food.units)")
                             .fontWeight(.bold)
                             .font(.caption)
                             .foregroundStyle(.gray)
                     }
                 }
 
-                if serving == 0 {
+                if amount == 0 {
                     Button(action: {
                         addServing()
                     }) {
@@ -68,8 +89,7 @@ struct FoodCardView: View {
                             .background(.prime)
                             .clipShape(RoundedRectangle(cornerRadius: 8))
                     }
-                }
-                else {
+                } else {
                     HStack {
                         Button(action: {
                             removeServing()
@@ -83,7 +103,7 @@ struct FoodCardView: View {
 
                         Spacer()
 
-                        Text(String(serving))
+                        Text(String(amount))
                             .font(.subheadline)
                             .fontWeight(.semibold)
 
@@ -107,8 +127,4 @@ struct FoodCardView: View {
         .padding(10)
         .overlay(RoundedRectangle(cornerRadius: 12).stroke(.gray, lineWidth: 0.5))
     }
-}
-
-#Preview {
-    FoodCardView(id: 1, name: "Nasi Goreng", portion: 150.0, units: "Serving", calorie: 230.0, addServing: {}, removeServing: {})
 }

@@ -5,12 +5,14 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 23/06/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct FoodPlate: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: FoodLogViewModel
-    @State var sortValue = "calorie"
+    @Query private var plates: [Plate]
+    @State var plateSort = SortDescriptor(\Plate.food.calorie)
 
     var body: some View {
         ZStack {
@@ -26,26 +28,26 @@ struct FoodPlate: View {
                                 HStack {
                                     Text("Sort by:")
 
-                                    Picker("Select a paint color", selection: $sortValue) {
+                                    Picker("Select a paint color", selection: $plateSort) {
                                         Image("calorie")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.calorie))
+                                            .tag(SortDescriptor(\Plate.food.calorie))
 
                                         Image("sugar")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.sugar))
+                                            .tag(SortDescriptor(\Plate.food.sugar))
 
                                         Image("salt")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.salt))
+                                            .tag(SortDescriptor(\Plate.food.salt))
 
                                         Image("fat")
                                             .resizable()
                                             .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\FoodItem.fat))
+                                            .tag(SortDescriptor(\Plate.food.fat))
                                     }
                                     .pickerStyle(.menu)
                                     .padding(.vertical, 5)
@@ -56,26 +58,7 @@ struct FoodPlate: View {
                                     .offset(x: -20)
                                 }
 
-                                VStack(spacing: 10) {
-                                    ForEach(viewModel.selectedFood) { item in
-                                        PlateCardView(
-                                            name: item.food.name,
-                                            calorie: item.food.calorie,
-                                            sugar: item.food.sugar,
-                                            salt: item.food.salt,
-                                            fat: item.food.fat,
-                                            serving: item.serving,
-                                            portion: item.food.portion,
-                                            units: item.food.units,
-                                            addServing: {
-                                                viewModel.addServing(for: item.food)
-                                            },
-                                            removeServing: {
-                                                viewModel.removeServing(for: item.food)
-                                            }
-                                        )
-                                    }
-                                }
+                                PlateList(sort: plateSort)
                             }
                         }
                         .padding(20)
@@ -123,6 +106,7 @@ struct FoodPlate: View {
             }
             .ignoresSafeArea()
         }
+
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

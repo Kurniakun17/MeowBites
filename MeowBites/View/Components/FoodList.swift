@@ -9,28 +9,16 @@ import SwiftData
 import SwiftUI
 
 struct FoodList: View {
-    @Query var foodsList: [FoodItem]
     @EnvironmentObject var viewModel: FoodLogViewModel
-
-    var filteredFoodList: [FoodItem] {
-        foodsList.filter { $0.type == viewModel.filter }
-    }
+    var sort: String
 
     var body: some View {
-        ForEach(filteredFoodList.chunked(into: 2), id: \.self) { rowItems in
+        ForEach(viewModel.filteredFoodList().chunked(into: 2), id: \.self) { rowItems in
             HStack(spacing: 20) {
                 ForEach(rowItems) { food in
                     FoodCardView(
-                        id: food.id,
-                        name: food.name,
-                        portion: food.portion,
-                        units: food.units,
-                        calorie: food.calorie,
-                        serving: (viewModel.getFoodServing(id: food.id) != nil) ? viewModel.getFoodServing(id: food.id)!.serving : 0,
-                        addServing: { viewModel.addServing(for: food)
-                        },
-                        removeServing: { viewModel.removeServing(for: food)
-                        }
+                        food: food,
+                        sort: sort
                     )
                     .environmentObject(viewModel)
                 }
@@ -44,11 +32,12 @@ struct FoodList: View {
         }
     }
 
-    init(sort: SortDescriptor<FoodItem>) {
-        _foodsList = Query(sort: [sort])
+    init(sort: String) {
+        self.sort = sort
+//        _foodsList = Query(sort: [sortByType(sort: sort)])
     }
 }
 
 #Preview {
-    FoodList(sort: SortDescriptor(\FoodItem.fat))
+    FoodList(sort: "fat")
 }

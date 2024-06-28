@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
+		F62A5E0B2C2E01C800869939 /* PlateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A5E0A2C2E01C800869939 /* PlateList.swift */; };
+
 		204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */; };
 		204B1B472C2C7AFF009039E7 /* BMRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B462C2C7AFF009039E7 /* BMRModel.swift */; };
 		204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B492C2C9DF3009039E7 /* Formatter.swift */; };
@@ -37,7 +40,7 @@
 		F6890ECA2C2BBEEB0042C151 /* NutritionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */; };
 		F6890ECC2C2BBEFB0042C151 /* FilterChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */; };
 		F6890ECE2C2BBF1A0042C151 /* FoodLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */; };
-		F6890ED02C2BBF2E0042C151 /* FoodServing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */; };
+		F6890ED02C2BBF2E0042C151 /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECF2C2BBF2E0042C151 /* Plate.swift */; };
 		F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ED12C2BE4880042C151 /* PlateCardView.swift */; };
 		F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */; };
 		F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FB2C2C527D00C53D53 /* FoodList.swift */; };
@@ -45,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F62A5E0A2C2E01C800869939 /* PlateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateList.swift; sourceTree = "<group>"; };
+
 		204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		204B1B462C2C7AFF009039E7 /* BMRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRModel.swift; sourceTree = "<group>"; };
 		204B1B492C2C9DF3009039E7 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -76,7 +81,7 @@
 		F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionBar.swift; sourceTree = "<group>"; };
 		F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterChip.swift; sourceTree = "<group>"; };
 		F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogViewModel.swift; sourceTree = "<group>"; };
-		F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodServing.swift; sourceTree = "<group>"; };
+		F6890ECF2C2BBF2E0042C151 /* Plate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 		F6890ED12C2BE4880042C151 /* PlateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateCardView.swift; sourceTree = "<group>"; };
 		F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPlateModel.swift; sourceTree = "<group>"; };
 		F6D983FB2C2C527D00C53D53 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
@@ -188,7 +193,7 @@
 				204B1B4D2C2CF681009039E7 /* UserCatModel.swift */,
 				F6890EB62C2BBE100042C151 /* FoodModel.swift */,
 				F6890EB92C2BBE2C0042C151 /* ChipModel.swift */,
-				F6890ECF2C2BBF2E0042C151 /* FoodServing.swift */,
+				F6890ECF2C2BBF2E0042C151 /* Plate.swift */,
 				F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */,
 			);
 			path = Model;
@@ -220,6 +225,7 @@
 				F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */,
 				F6890ED12C2BE4880042C151 /* PlateCardView.swift */,
 				F6D983FB2C2C527D00C53D53 /* FoodList.swift */,
+				F62A5E0A2C2E01C800869939 /* PlateList.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -302,6 +308,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6890ED02C2BBF2E0042C151 /* Plate.swift in Sources */,
+
 				20FCA8A02C2C0AF300E3546E /* OnboardingDoneSet.swift in Sources */,
 				204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */,
 				20FCA89A2C2BC4A200E3546E /* OnboardingPersonalData.swift in Sources */,
@@ -337,6 +345,7 @@
 				F6890EBA2C2BBE2C0042C151 /* ChipModel.swift in Sources */,
 				F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */,
 				F6890ECC2C2BBEFB0042C151 /* FilterChip.swift in Sources */,
+				F62A5E0B2C2E01C800869939 /* PlateList.swift in Sources */,
 				F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
