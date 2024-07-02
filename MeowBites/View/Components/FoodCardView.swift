@@ -12,9 +12,10 @@ struct FoodCardView: View {
     @EnvironmentObject var viewModel: FoodLogViewModel
     @Environment(\.modelContext) var modelContext
     @Query var plates: [Plate]
+    @Query var intakeLogs: [IntakeLog]
     var food: FoodItem
     var amount: Int {
-        plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+        intakeLogs.last!.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
     var sort: String
@@ -32,11 +33,11 @@ struct FoodCardView: View {
     }
 
     func addServing() {
-        viewModel.addServing(modelContext: modelContext, food: food, plates: plates)
+        viewModel.addServing(modelContext: modelContext, food: food, plates: intakeLogs.last!.plates)
     }
 
     func removeServing() {
-        viewModel.removeServing(modelContext: modelContext, food: food, plates: plates)
+        viewModel.removeServing(modelContext: modelContext, food: food, plates: intakeLogs.last!.plates)
     }
 
     var body: some View {

@@ -12,8 +12,8 @@ import SwiftUI
 struct MeowBitesApp: App {
     var body: some Scene {
         WindowGroup {
-            Home()
+            OnboardingStart()
         }
-        .modelContainer(for: [UserPersonalData.self, BMRData.self, Plate.self, FoodItem.self])
+        .modelContainer(for: [UserPersonalData.self, BMRData.self, IntakeLog.self, Plate.self, FoodItem.self])
     }
 }

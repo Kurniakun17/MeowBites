@@ -27,10 +27,8 @@ class OnboardingViewModel: ObservableObject {
 
         if userPersonalData.gender == "male" {
             BMR = 88.4 + weightFactorMale + heightFactorMale - ageFactorMale
-            print(BMR)
         } else {
             BMR = 447.6 + weightFactorFemale + heightFactorFemale - ageFactorFemale
-            print(BMR)
         }
 
         switch userPersonalData.exerciseRate {

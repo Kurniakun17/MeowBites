@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		F62A5E0B2C2E01C800869939 /* PlateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A5E0A2C2E01C800869939 /* PlateList.swift */; };
-
 		204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */; };
 		204B1B472C2C7AFF009039E7 /* BMRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B462C2C7AFF009039E7 /* BMRModel.swift */; };
 		204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204B1B492C2C9DF3009039E7 /* Formatter.swift */; };
@@ -26,6 +23,7 @@
 		20FCA8A22C2C33B100E3546E /* OnboardingExerciseSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */; };
 		3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30D2C2C1080005A69AA /* Profile.swift */; };
 		3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */; };
+		F62A5E0B2C2E01C800869939 /* PlateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A5E0A2C2E01C800869939 /* PlateList.swift */; };
 		F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */; };
 		F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890EA72C2BBB320042C151 /* ContentView.swift */; };
 		F6890EAA2C2BBB330042C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6890EA92C2BBB330042C151 /* Assets.xcassets */; };
@@ -42,14 +40,13 @@
 		F6890ECE2C2BBF1A0042C151 /* FoodLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */; };
 		F6890ED02C2BBF2E0042C151 /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ECF2C2BBF2E0042C151 /* Plate.swift */; };
 		F6890ED22C2BE4880042C151 /* PlateCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6890ED12C2BE4880042C151 /* PlateCardView.swift */; };
+		F6C21FDB2C33996100A62B9A /* IntakeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C21FDA2C33996100A62B9A /* IntakeLog.swift */; };
 		F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */; };
 		F6D983FC2C2C527D00C53D53 /* FoodList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FB2C2C527D00C53D53 /* FoodList.swift */; };
 		F6D984002C2C638600C53D53 /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D983FF2C2C638600C53D53 /* FoodDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F62A5E0A2C2E01C800869939 /* PlateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateList.swift; sourceTree = "<group>"; };
-
 		204B1B442C2C7A55009039E7 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		204B1B462C2C7AFF009039E7 /* BMRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMRModel.swift; sourceTree = "<group>"; };
 		204B1B492C2C9DF3009039E7 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
@@ -66,6 +63,7 @@
 		20FCA8A12C2C33B100E3546E /* OnboardingExerciseSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingExerciseSelect.swift; sourceTree = "<group>"; };
 		3B3CB30D2C2C1080005A69AA /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3B3CB30F2C2C10E1005A69AA /* FoodDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDiary.swift; sourceTree = "<group>"; };
+		F62A5E0A2C2E01C800869939 /* PlateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateList.swift; sourceTree = "<group>"; };
 		F6890EA22C2BBB320042C151 /* MeowBites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeowBites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6890EA52C2BBB320042C151 /* MeowBitesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeowBitesApp.swift; sourceTree = "<group>"; };
 		F6890EA72C2BBB320042C151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +81,7 @@
 		F6890ECD2C2BBF1A0042C151 /* FoodLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodLogViewModel.swift; sourceTree = "<group>"; };
 		F6890ECF2C2BBF2E0042C151 /* Plate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
 		F6890ED12C2BE4880042C151 /* PlateCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlateCardView.swift; sourceTree = "<group>"; };
+		F6C21FDA2C33996100A62B9A /* IntakeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntakeLog.swift; sourceTree = "<group>"; };
 		F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPlateModel.swift; sourceTree = "<group>"; };
 		F6D983FB2C2C527D00C53D53 /* FoodList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodList.swift; sourceTree = "<group>"; };
 		F6D983FF2C2C638600C53D53 /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
@@ -195,6 +194,7 @@
 				F6890EB92C2BBE2C0042C151 /* ChipModel.swift */,
 				F6890ECF2C2BBF2E0042C151 /* Plate.swift */,
 				F6D983F92C2C3CC200C53D53 /* FoodPlateModel.swift */,
+				F6C21FDA2C33996100A62B9A /* IntakeLog.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,7 +309,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6890ED02C2BBF2E0042C151 /* Plate.swift in Sources */,
-
 				20FCA8A02C2C0AF300E3546E /* OnboardingDoneSet.swift in Sources */,
 				204B1B4A2C2C9DF3009039E7 /* Formatter.swift in Sources */,
 				20FCA89A2C2BC4A200E3546E /* OnboardingPersonalData.swift in Sources */,
@@ -326,7 +325,7 @@
 				204B1B452C2C7A55009039E7 /* OnboardingViewModel.swift in Sources */,
 				20FCA8A22C2C33B100E3546E /* OnboardingExerciseSelect.swift in Sources */,
 				20FCA8942C2BC28E00E3546E /* OnboardingGenderSelect.swift in Sources */,
-				F6890ED02C2BBF2E0042C151 /* FoodServing.swift in Sources */,
+				F6890ED02C2BBF2E0042C151 /* Plate.swift in Sources */,
 				F6890EB72C2BBE100042C151 /* FoodModel.swift in Sources */,
 				F6890EC82C2BBED80042C151 /* LogSummary.swift in Sources */,
 				F6890EC32C2BBEA90042C151 /* FoodPlate.swift in Sources */,
@@ -336,6 +335,7 @@
 				F6D983FA2C2C3CC200C53D53 /* FoodPlateModel.swift in Sources */,
 				F6890EA82C2BBB320042C151 /* ContentView.swift in Sources */,
 				3B3CB30E2C2C1080005A69AA /* Profile.swift in Sources */,
+				F6C21FDB2C33996100A62B9A /* IntakeLog.swift in Sources */,
 				F6890EA62C2BBB320042C151 /* MeowBitesApp.swift in Sources */,
 				3B3CB3102C2C10E1005A69AA /* FoodDiary.swift in Sources */,
 				F6890EBE2C2BBE6E0042C151 /* Home.swift in Sources */,
@@ -480,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeowBites/Preview Content\"";
-				DEVELOPMENT_TEAM = 2RQ6LB993C;
+				DEVELOPMENT_TEAM = 49V8Q5W76J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -511,7 +511,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MeowBites/Preview Content\"";
-				DEVELOPMENT_TEAM = 2RQ6LB993C;
+				DEVELOPMENT_TEAM = 49V8Q5W76J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

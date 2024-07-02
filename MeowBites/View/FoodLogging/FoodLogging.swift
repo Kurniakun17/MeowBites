@@ -13,7 +13,8 @@ struct FoodLogging: View {
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var viewModel: FoodLogViewModel
     @State private var sortOrder = "calorie"
-    @Query var plates: [Plate]
+//    @Query var plates: [Plate]
+    @Query var intakeLogs: [IntakeLog]
 
     var body: some View {
         ZStack {
@@ -55,7 +56,6 @@ struct FoodLogging: View {
 
                                 Spacer()
 
-//                                HStack {
                                 Picker("Select a paint color", selection: $viewModel.sortBy) {
                                     Image("calorie")
                                         .resizable()
@@ -103,7 +103,7 @@ struct FoodLogging: View {
             .ignoresSafeArea()
         }
         .onAppear{
-            viewModel.updateNutrientCount(plates: plates)
+            viewModel.updateNutrientCount(plates: intakeLogs.last!.plates)
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {

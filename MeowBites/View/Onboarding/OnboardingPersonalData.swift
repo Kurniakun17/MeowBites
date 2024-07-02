@@ -172,8 +172,7 @@ struct OnboardingPersonalData: View {
 
                                 NavigationLink(destination:
                                     OnboardingExerciseSelect(userPersonalData: $userPersonalData).onAppear {
-                                        print(userPersonalData)
-                                        print(userPersonalData.gender)
+                           
                                         userPersonalData = UserPersonalData(gender: userGender, age: selectedAge, weight: selectedWeight, height: selectedHeight, exerciseRate: "")
                                     },
                                     label: {
@@ -186,12 +185,9 @@ struct OnboardingPersonalData: View {
                                             .clipShape(RoundedRectangle(cornerRadius: 16))
                                     })
                                     .onTapGesture {
-                                        print("Yakkk1")
                                         userPersonalData = UserPersonalData(gender: userGender, age: selectedAge, weight: selectedWeight, height: selectedHeight, exerciseRate: "")
 
-                                        print("Yakkk2")
-                                        print(userPersonalData)
-                                        print("Yakkk3")
+                                      
                                     }
                             }
                         }
@@ -201,7 +197,6 @@ struct OnboardingPersonalData: View {
                             OnboardingGenderSelect(userGender: $userGender, isDisabled: $isDisabled).frame(height: 350)
                             Button(action: {
                                 step = 2
-                                print(userGender)
                             }, label: {
                                 Text("Next")
                                     .font(.system(size: 24, weight: .bold))
