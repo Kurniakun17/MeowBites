@@ -103,7 +103,7 @@ struct FoodLogging: View {
             .ignoresSafeArea()
         }
         .onAppear{
-            viewModel.updateNutrientCount(plates: intakeLogs.last!.plates)
+            viewModel.updateNutrientCount(plates: intakeLogs.last!.plates, intakeLogs: intakeLogs)
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {

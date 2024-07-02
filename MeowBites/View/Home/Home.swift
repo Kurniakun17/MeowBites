@@ -10,16 +10,66 @@ import SwiftData
 import SwiftUI
 
 struct Home: View {
+    @Environment(\.modelContext) private var context
     @StateObject var viewModel = FoodLogViewModel()
     @Query var intakeLogs: [IntakeLog]
-    @Query var personalDatas: [UserPersonalData]
-    @Query var bmrDatas: [BMRData]
-
-    var todayLog: [IntakeLog] {
-        return getTodayLog()
+    @Query var dailyIntakeLogs: [DailyIntakeLog]
+    var todayLog: DailyIntakeLog {
+        return dailyIntakeLogs.last ?? DailyIntakeLog(Date: Date(), intakeLogs: [])
     }
 
-    @Environment(\.modelContext) private var context
+    @Query var personalDatas: [UserPersonalData]
+    @Query var bmrDatas: [BMRData]
+    var bmrData: BMRData {
+        return bmrDatas.first ?? BMRData(calorie: 2000.0, sugar: 50.0, salt: 50.0, fat: 50.0)
+    }
+
+    var caloriePercentage: Int {
+        generatePercentage(type: "calorie")
+    }
+
+    var sugarPercentage: Int {
+        generatePercentage(type: "sugar")
+    }
+
+    var saltPercentage: Int {
+        generatePercentage(type: "salt")
+    }
+
+    var fatPercentage: Int {
+        generatePercentage(type: "fat")
+    }
+
+    func generatePercentage(type: String) -> Int {
+        switch type {
+        case "calorie":
+            if todayLog.calorie == 0.0 {
+                return 1
+            }
+
+            return Int(todayLog.calorie / bmrData.calorie * 100)
+        case "sugar":
+            if todayLog.sugar == 0.0 {
+                return 1
+            }
+            return Int(todayLog.sugar / bmrData.sugar * 100)
+
+        case "salt":
+            if todayLog.salt == 0.0 {
+                return 1
+            }
+            return Int(todayLog.salt / bmrData.salt * 100)
+
+        case "fat":
+            if todayLog.fat == 0.0 {
+                return 1
+            }
+            return Int(todayLog.fat / bmrData.calorie * 100)
+
+        default:
+            return 0
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -44,10 +94,10 @@ struct Home: View {
                     Spacer()
 
                     HStack(spacing: 20) {
-                        NutritionBar(type: "calorie", percentage: 20)
-                        NutritionBar(type: "sugar", percentage: 120)
-                        NutritionBar(type: "salt", percentage: 90)
-                        NutritionBar(type: "fat", percentage: 70)
+                        NutritionBar(type: "calorie", percentage: caloriePercentage)
+                        NutritionBar(type: "sugar", percentage: sugarPercentage)
+                        NutritionBar(type: "salt", percentage: saltPercentage)
+                        NutritionBar(type: "fat", percentage: fatPercentage)
                     }
 
                     .padding(.bottom, 12)
@@ -76,6 +126,10 @@ struct Home: View {
 
                                 for data in intakeLogs {
                                     context.delete(data)
+                                }
+
+                                for dailyIntakeLog in dailyIntakeLogs {
+                                    context.delete(dailyIntakeLog)
                                 }
                             }) {
                                 Text("Delete")
@@ -114,11 +168,8 @@ struct Home: View {
                 }
             }
             .onAppear {
-                generateTodayLog()
-                print(intakeLogs.last?.isLogged ?? "null")
-            }
-            .onChange(of: intakeLogs) {
-                print(getTodayLog())
+                generateDailyIntake()
+                generateEmptyLog()
             }
             .ignoresSafeArea()
         }
@@ -135,13 +186,28 @@ struct Home: View {
         return list
     }
 
-    func generateTodayLog() {
-        if intakeLogs.count > 0 {
-            if intakeLogs.last!.isLogged {
-                context.insert(IntakeLog(Date: Date(), plates: []))
+    func generateEmptyLog() {
+//        If there is no unlogged intake, create a new one
+        if intakeLogs.count > 0 && intakeLogs.last!.isLogged {
+            context.insert(IntakeLog(Date: Date(), plates: []))
+        } else if intakeLogs.isEmpty {
+            context.insert(IntakeLog(Date: Date(), plates: []))
+        }
+    }
+
+    func generateDailyIntake() {
+//        If there is no todays log, create a new one
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let today = formatter.string(from: Date())
+
+        if dailyIntakeLogs.count > 0 {
+            let lastDate = formatter.string(from: dailyIntakeLogs.last!.date)
+            if lastDate != today {
+                context.insert(DailyIntakeLog(Date: Date(), intakeLogs: []))
             }
         } else {
-            context.insert(IntakeLog(Date: Date(), plates: []))
+            context.insert(DailyIntakeLog(Date: Date(), intakeLogs: []))
         }
     }
 }
@@ -149,7 +215,7 @@ struct Home: View {
 #Preview {
     do {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Plate.self, BMRData.self, UserPersonalData.self, IntakeLog.self, FoodItem.self, configurations: config)
+        let container = try ModelContainer(for: Plate.self, BMRData.self, UserPersonalData.self, IntakeLog.self, FoodItem.self, DailyIntakeLog.self, configurations: config)
         return Home()
             .modelContainer(container)
     } catch {

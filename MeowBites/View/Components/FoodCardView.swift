@@ -15,7 +15,7 @@ struct FoodCardView: View {
     @Query var intakeLogs: [IntakeLog]
     var food: FoodItem
     var amount: Int {
-        return intakeLogs.last!.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+        return intakeLogs.last?.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
     var sort: String
@@ -125,12 +125,6 @@ struct FoodCardView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(0)
         }
-//        .onAppear{
-//            print("amount ",amount)
-//        }
-//        .onChange(of: amount){
-//            print("amount change: ",amount)
-//        }
         .padding(10)
         .overlay(RoundedRectangle(cornerRadius: 12).stroke(.gray, lineWidth: 0.5))
     }

@@ -73,8 +73,7 @@ struct OnboardingDoneSet: View {
                                     Text("5 grams")
                                         .font(.system(size: 25))
                                         .bold()
-
-                                    Text("of salt a day")
+                                     Text("of salt a day")
                                         .font(.body)
                                 }
                                 Spacer()

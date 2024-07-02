@@ -15,6 +15,14 @@ struct FoodPlate: View {
     @Query private var plates: [Plate]
     @State var plateSort = SortDescriptor(\Plate.food.calorie)
     @Query var intakeLogs: [IntakeLog]
+    var intakeLog: IntakeLog {
+        return intakeLogs.last!
+    }
+
+    @Query var dailyIntakeLogs: [DailyIntakeLog]
+    var dailyIntakeLog: DailyIntakeLog {
+        return dailyIntakeLogs.last!
+    }
 
     var body: some View {
         ZStack {
@@ -90,7 +98,12 @@ struct FoodPlate: View {
                             }
                     }
                     Button {
-                        intakeLogs.last!.isLogged = true
+                        intakeLog.isLogged = true
+                        dailyIntakeLog.calorie += intakeLog.calorie
+                        dailyIntakeLog.sugar += intakeLog.sugar
+                        dailyIntakeLog.salt += intakeLog.salt / 1000
+                        dailyIntakeLog.fat += intakeLog.fat
+                        dailyIntakeLog.intakeLogs.append(intakeLogs.last!)
                         dismiss()
                     } label: {
                         Text("Log")

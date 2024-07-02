@@ -135,7 +135,6 @@ class FoodLogViewModel: ObservableObject {
     }
 
     func removeServing(modelContext: ModelContext, food: FoodItem, intakeLogs: [IntakeLog]) {
-
         if let index = intakeLogs.last!.plates.firstIndex(where: { $0.food.id == food.id }) {
             if intakeLogs.last!.plates[index].amount == 1 {
                 intakeLogs.last!.plates.remove(at: index)
@@ -170,7 +169,7 @@ class FoodLogViewModel: ObservableObject {
         }
     }
 
-    func updateNutrientCount(plates: [Plate]) {
+    func updateNutrientCount(plates: [Plate], intakeLogs: [IntakeLog]) {
         var newCalorieCount = 0.0
         var newSugarCount = 0.0
         var newSaltCount = 0.0
@@ -188,7 +187,7 @@ class FoodLogViewModel: ObservableObject {
         saltCount = newSaltCount
         fatCount = newFatCount
 
-        updateMood()
+        updateMood(intakeLogs: intakeLogs)
     }
 
     private func increaseNutrientCount(food: FoodItem, intakeLogs: [IntakeLog]) {
@@ -197,7 +196,7 @@ class FoodLogViewModel: ObservableObject {
         intakeLogs.last?.salt += food.salt
         intakeLogs.last?.fat += food.fat
 
-        updateMood()
+        updateMood(intakeLogs: intakeLogs)
     }
 
     private func decreaseNutrientCount(food: FoodItem, intakeLogs: [IntakeLog]) {
@@ -206,7 +205,7 @@ class FoodLogViewModel: ObservableObject {
         intakeLogs.last?.salt -= food.salt
         intakeLogs.last?.fat -= food.fat
 
-        updateMood()
+        updateMood(intakeLogs: intakeLogs)
     }
 
     private func updateDate(intakeLogs: [IntakeLog]) {
@@ -228,10 +227,10 @@ class FoodLogViewModel: ObservableObject {
         }
     }
 
-    func updateMood() {
-        if calorieCount > 1700 {
+    func updateMood(intakeLogs: [IntakeLog]) {
+        if intakeLogs.last!.calorie > 1700 {
             character_mood = "danger"
-        } else if calorieCount > 1200 {
+        } else if intakeLogs.last!.calorie > 1200 {
             character_mood = "warning"
         } else {
             character_mood = "good"

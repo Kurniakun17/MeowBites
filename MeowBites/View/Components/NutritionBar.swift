@@ -62,7 +62,7 @@ struct NutritionBar: View {
     @State var isAnimating = true
     let startDate = Date()
     @State private var phase: CGFloat = 0
-    @State var percentage: Int
+    var percentage: Int
 
     var body: some View {
         TimelineView(.animation) { timeline in

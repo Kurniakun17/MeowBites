@@ -49,13 +49,13 @@ class OnboardingViewModel: ObservableObject {
 
         case "extraIntense":
             BMRCalculation.calorie = BMR * 2.1
-
         default:
             BMRCalculation.calorie = BMR
         }
 
         BMRCalculation.fat = (BMRCalculation.calorie / 9) * 0.3
         BMRCalculation.sugar = (BMRCalculation.calorie / 4) * 0.3
+        BMRCalculation.salt = 5.0
 
         return BMRCalculation
     }
