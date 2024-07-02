@@ -5,6 +5,7 @@
 //  Created by Kurnia Kharisma Agung Samiadjie on 25/06/24.
 //
 
+import SwiftData
 import SwiftUI
 
 struct StateItem {
@@ -22,7 +23,9 @@ let state: [String: StateItem] = [
 
 struct LogSummary: View {
     @EnvironmentObject var viewModel: FoodLogViewModel
+    @Query var intakeLogs: [IntakeLog]
     var isPlatePage = false
+
     var body: some View {
         ZStack {
             VStack(spacing: 16) {
@@ -45,7 +48,7 @@ struct LogSummary: View {
                                 .resizable()
                                 .frame(width: 16, height: 16)
                                 .saturation(0.4)
-                            Text("\(String(format: "%.0f", viewModel.calorieCount)) kcal")
+                            Text("\(String(format: "%.0f", intakeLogs.last!.calorie)) kcal")
                                 .font(.footnote)
                         }
 
@@ -54,7 +57,7 @@ struct LogSummary: View {
                                 .resizable()
                                 .frame(width: 16, height: 16)
                                 .saturation(0.4)
-                            Text("\(String(format: "%.1f", viewModel.sugarCount)) g")
+                            Text("\(String(format: "%.1f", intakeLogs.last!.sugar)) g")
                                 .font(.footnote)
                         }
 
@@ -63,7 +66,7 @@ struct LogSummary: View {
                                 .resizable()
                                 .frame(width: 16, height: 16)
                                 .saturation(0.4)
-                            Text("\(String(format: "%.1f", viewModel.saltCount/1000)) g")
+                            Text("\(String(format: "%.1f", intakeLogs.last!.salt / 1000)) g")
                                 .font(.footnote)
                         }
 
@@ -72,7 +75,7 @@ struct LogSummary: View {
                                 .resizable()
                                 .frame(width: 16, height: 16)
                                 .saturation(0.4)
-                            Text("\(String(format: "%.1f", viewModel.fatCount)) g")
+                            Text("\(String(format: "%.1f", intakeLogs.last!.fat)) g")
                                 .font(.footnote)
                         }
                     }

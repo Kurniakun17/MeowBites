@@ -11,6 +11,7 @@ import SwiftUI
 struct OnboardingDoneSet: View {
     @Environment(\.modelContext) var context
     @Query var BMRDatas: [BMRData]
+    @Query var userPersonalDatas: [UserPersonalData]
 
     var BMRData: BMRData? {
         BMRDatas.first
@@ -98,7 +99,9 @@ struct OnboardingDoneSet: View {
                     }
                     .frame(height: 350)
 
-                    NavigationLink(destination: {}, label: {
+                    Button(action: {
+                        userPersonalDatas.last!.isDoneOnboarding = true
+                    }, label: {
                         Text("Eat")
                             .font(.system(size: 24, weight: .bold))
                             .padding(.vertical, 20)

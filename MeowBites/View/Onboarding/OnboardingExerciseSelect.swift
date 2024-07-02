@@ -10,11 +10,8 @@ import SwiftUI
 struct OnboardingExerciseSelect: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
-
     @StateObject var viewModel = OnboardingViewModel()
-
     @Binding var userPersonalData: UserPersonalData
-
     @State var isDisabled = true
     @State var exerciseRate = ""
 

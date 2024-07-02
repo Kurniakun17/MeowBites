@@ -13,17 +13,26 @@ struct OnboardingStart: View {
 
     @Query var personalDatas: [UserPersonalData]
     @Query var bmrDatas: [BMRData]
+    @Query var intakeLogs: [IntakeLog]
     @State var isPageOne = true
 
     @State var step = 1
     var body: some View {
-        if personalDatas.count > 0 {
+        if (personalDatas.last?.isDoneOnboarding) != nil && (personalDatas.last?.isDoneOnboarding) == true {
             Home()
-                .onAppear {
-                    for data in bmrDatas {
-                        context.delete(data)
-                    }
-                }
+//                .onAppear {
+//                    for data in personalDatas {
+//                        context.delete(data)
+//                    }
+//
+//                    for data in bmrDatas {
+//                        context.delete(data)
+//                    }
+//                    
+//                    for data in intakeLogs{
+//                        context.delete(data)
+//                    }
+//                }
         } else {
             NavigationStack {
                 GeometryReader {

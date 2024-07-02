@@ -14,6 +14,6 @@ struct MeowBitesApp: App {
         WindowGroup {
             OnboardingStart()
         }
-        .modelContainer(for: [UserPersonalData.self, BMRData.self, IntakeLog.self, Plate.self, FoodItem.self])
+        .modelContainer(for: [UserPersonalData.self, BMRData.self, FoodItem.self, IntakeLog.self, Plate.self, DailyIntakeLog.self])
     }
 }

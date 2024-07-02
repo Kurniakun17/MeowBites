@@ -108,7 +108,6 @@ class FoodLogViewModel: ObservableObject {
             type: "Protein"
         ),
     ]
-
     @Published var calorieCount = 0.0
     @Published var sugarCount = 0.0
     @Published var saltCount = 0.0
@@ -124,26 +123,29 @@ class FoodLogViewModel: ObservableObject {
     @Published var sortBy = "calorie"
     @Published var character_mood = "good"
 
-    func addServing(modelContext: ModelContext, food: FoodItem, plates: [Plate]) {
-        if let index = plates.firstIndex(where: { $0.food.id == food.id }) {
-            plates[index].amount += 1
+    func addServing(modelContext: ModelContext, food: FoodItem, intakeLogs: [IntakeLog]) {
+        if let index = intakeLogs.last!.plates.firstIndex(where: { $0.food.id == food.id }) {
+            intakeLogs.last!.plates[index].amount += 1
         } else {
-            modelContext.insert(Plate(food: food, amount: 1))
+            intakeLogs.last!.plates.append(Plate(food: food, amount: 1))
         }
 
-        increaseNutrientCount(food: food)
+        increaseNutrientCount(food: food, intakeLogs: intakeLogs)
+        updateDate(intakeLogs: intakeLogs)
     }
 
-    func removeServing(modelContext: ModelContext, food: FoodItem, plates: [Plate]) {
-        if let index = plates.firstIndex(where: { $0.food.id == food.id }) {
-            if plates[index].amount == 1 {
-                modelContext.delete(plates[index])
+    func removeServing(modelContext: ModelContext, food: FoodItem, intakeLogs: [IntakeLog]) {
+
+        if let index = intakeLogs.last!.plates.firstIndex(where: { $0.food.id == food.id }) {
+            if intakeLogs.last!.plates[index].amount == 1 {
+                intakeLogs.last!.plates.remove(at: index)
             } else {
-                plates[index].amount -= 1
+                intakeLogs.last!.plates[index].amount -= 1
             }
         }
 
-        decreaseNutrientCount(food: food)
+        decreaseNutrientCount(food: food, intakeLogs: intakeLogs)
+        updateDate(intakeLogs: intakeLogs)
     }
 
     func filteredFoodList() -> [FoodItem] {
@@ -189,36 +191,40 @@ class FoodLogViewModel: ObservableObject {
         updateMood()
     }
 
-    private func increaseNutrientCount(food: FoodItem) {
-        calorieCount += food.calorie
-        sugarCount += food.sugar
-        saltCount += food.salt
-        fatCount += food.fat
+    private func increaseNutrientCount(food: FoodItem, intakeLogs: [IntakeLog]) {
+        intakeLogs.last?.calorie += food.calorie
+        intakeLogs.last?.sugar += food.sugar
+        intakeLogs.last?.salt += food.salt
+        intakeLogs.last?.fat += food.fat
 
         updateMood()
     }
 
-    private func decreaseNutrientCount(food: FoodItem) {
-        calorieCount -= food.calorie
-        sugarCount -= food.sugar
-        saltCount -= food.salt
-        fatCount -= food.fat
+    private func decreaseNutrientCount(food: FoodItem, intakeLogs: [IntakeLog]) {
+        intakeLogs.last?.calorie -= food.calorie
+        intakeLogs.last?.sugar -= food.sugar
+        intakeLogs.last?.salt -= food.salt
+        intakeLogs.last?.fat -= food.fat
 
         updateMood()
     }
-    
+
+    private func updateDate(intakeLogs: [IntakeLog]) {
+        intakeLogs.last?.date = Date()
+    }
+
     func generateSortDescriptor() -> SortDescriptor<Plate> {
         switch sortBy {
-            case "calorie":
-                return SortDescriptor(\Plate.food.calorie)
-            case "sugar":
-                return SortDescriptor(\Plate.food.sugar)
-            case "salt":
-                return SortDescriptor(\Plate.food.salt)
-            case "fat":
-                return SortDescriptor(\Plate.food.fat)
-            default:
-                return SortDescriptor(\Plate.food.calorie)
+        case "calorie":
+            return SortDescriptor(\Plate.food.calorie)
+        case "sugar":
+            return SortDescriptor(\Plate.food.sugar)
+        case "salt":
+            return SortDescriptor(\Plate.food.salt)
+        case "fat":
+            return SortDescriptor(\Plate.food.fat)
+        default:
+            return SortDescriptor(\Plate.food.calorie)
         }
     }
 

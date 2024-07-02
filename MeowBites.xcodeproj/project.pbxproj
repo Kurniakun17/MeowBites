@@ -220,10 +220,10 @@
 			isa = PBXGroup;
 			children = (
 				F6890EC52C2BBEC60042C151 /* FoodCardView.swift */,
+				F6890ED12C2BE4880042C151 /* PlateCardView.swift */,
 				F6890EC72C2BBED80042C151 /* LogSummary.swift */,
 				F6890EC92C2BBEEB0042C151 /* NutritionBar.swift */,
 				F6890ECB2C2BBEFB0042C151 /* FilterChip.swift */,
-				F6890ED12C2BE4880042C151 /* PlateCardView.swift */,
 				F6D983FB2C2C527D00C53D53 /* FoodList.swift */,
 				F62A5E0A2C2E01C800869939 /* PlateList.swift */,
 			);

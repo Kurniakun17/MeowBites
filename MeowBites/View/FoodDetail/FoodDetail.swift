@@ -13,22 +13,23 @@ struct FoodDetail: View {
     @EnvironmentObject var viewModel: FoodLogViewModel
     @Environment(\.modelContext) var modelContext
     @Query var plates: [Plate]
+    @Query var intakeLogs: [IntakeLog]
     var food: FoodItem
     var serving: Int {
         plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
     func addServing() {
-        viewModel.addServing(modelContext: modelContext, food: food, plates: plates)
+        viewModel.addServing(modelContext: modelContext, food: food, intakeLogs: intakeLogs)
     }
 
     func removeServing() {
-        viewModel.removeServing(modelContext: modelContext, food: food, plates: plates)
+        viewModel.removeServing(modelContext: modelContext, food: food, intakeLogs: intakeLogs)
     }
 
     var body: some View {
         ZStack {
-            VStack(spacing: 24) {   
+            VStack(spacing: 24) {
                 HStack(spacing: 12) {
                     RoundedRectangle(cornerRadius: 12)
                         .fill(.black)

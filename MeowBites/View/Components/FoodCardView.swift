@@ -15,7 +15,7 @@ struct FoodCardView: View {
     @Query var intakeLogs: [IntakeLog]
     var food: FoodItem
     var amount: Int {
-        intakeLogs.last!.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+        return intakeLogs.last!.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
     var sort: String
@@ -33,11 +33,11 @@ struct FoodCardView: View {
     }
 
     func addServing() {
-        viewModel.addServing(modelContext: modelContext, food: food, plates: intakeLogs.last!.plates)
+        viewModel.addServing(modelContext: modelContext, food: food, intakeLogs: intakeLogs)
     }
 
     func removeServing() {
-        viewModel.removeServing(modelContext: modelContext, food: food, plates: intakeLogs.last!.plates)
+        viewModel.removeServing(modelContext: modelContext, food: food, intakeLogs: intakeLogs)
     }
 
     var body: some View {
@@ -125,6 +125,12 @@ struct FoodCardView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(0)
         }
+//        .onAppear{
+//            print("amount ",amount)
+//        }
+//        .onChange(of: amount){
+//            print("amount change: ",amount)
+//        }
         .padding(10)
         .overlay(RoundedRectangle(cornerRadius: 12).stroke(.gray, lineWidth: 0.5))
     }

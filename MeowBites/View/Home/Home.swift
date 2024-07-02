@@ -12,8 +12,15 @@ import SwiftUI
 struct Home: View {
     @StateObject var viewModel = FoodLogViewModel()
     @Query var intakeLogs: [IntakeLog]
+    @Query var personalDatas: [UserPersonalData]
+    @Query var bmrDatas: [BMRData]
+
+    var todayLog: [IntakeLog] {
+        return getTodayLog()
+    }
+
     @Environment(\.modelContext) private var context
-    
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -25,26 +32,26 @@ struct Home: View {
                     alignment: .topLeading
                 )
                 .background(.sucessBackground)
-                
+
                 Image("background")
                     .scaleEffect(1.05)
-                
+
                 Image("cat1")
                     .shadow(color: .successBody, radius: 0, x: -16, y: 16)
                     .offset(x: 15, y: -100)
-                
+
                 VStack(spacing: 0) {
                     Spacer()
-                    
+
                     HStack(spacing: 20) {
                         NutritionBar(type: "calorie", percentage: 20)
                         NutritionBar(type: "sugar", percentage: 120)
                         NutritionBar(type: "salt", percentage: 90)
                         NutritionBar(type: "fat", percentage: 70)
                     }
-                    
+
                     .padding(.bottom, 12)
-                    
+
                     VStack(spacing: 14) {
                         HStack {
                             Image(systemName: "lightbulb.max.fill")
@@ -56,7 +63,31 @@ struct Home: View {
                         .padding(.horizontal, 20)
                         .background(.sucessBackground)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        
+
+                        HStack {
+                            Button(action: {
+                                for data in personalDatas {
+                                    context.delete(data)
+                                }
+
+                                for data in bmrDatas {
+                                    context.delete(data)
+                                }
+
+                                for data in intakeLogs {
+                                    context.delete(data)
+                                }
+                            }) {
+                                Text("Delete")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(24)
+                                    .foregroundStyle(.white)
+                                    .background(.redSoft)
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                            }
+                        }
                         NavigationLink {
                             FoodLogging()
                         } label: {
@@ -69,7 +100,7 @@ struct Home: View {
                                 .background(.prime)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
                         }
-                        
+
                         Text("Eat nicely to make miaw stay happy")
                             .foregroundStyle(.gray)
                     }
@@ -84,20 +115,28 @@ struct Home: View {
             }
             .onAppear {
                 generateTodayLog()
+                print(intakeLogs.last?.isLogged ?? "null")
+            }
+            .onChange(of: intakeLogs) {
+                print(getTodayLog())
             }
             .ignoresSafeArea()
         }
         .environmentObject(viewModel)
     }
 
+    func getTodayLog() -> [IntakeLog] {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let today = formatter.string(from: Date())
+
+        let list = intakeLogs.filter { $0.isLogged && formatter.string(from: $0.date) == today }
+
+        return list
+    }
+
     func generateTodayLog() {
-        let formatterDate = DateFormatter()
-        let today = formatterDate.string(from: Date())
-        formatterDate.dateFormat = "yyyy-MM-dd"
-        
         if intakeLogs.count > 0 {
-            let logLastDate = formatterDate.string(from: intakeLogs.last!.Date)
-            
             if intakeLogs.last!.isLogged {
                 context.insert(IntakeLog(Date: Date(), plates: []))
             }

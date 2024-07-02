@@ -9,11 +9,12 @@ import SwiftData
 import SwiftUI
 
 struct PlateList: View {
+    @Query var intakeLogs: [IntakeLog]
     @Query(sort: [SortDescriptor(\Plate.food.calorie)]) var plates: [Plate]
 
     var body: some View {
         VStack(spacing: 10) {
-            ForEach(plates) { plate in
+            ForEach(intakeLogs.last!.plates) { plate in
                 PlateCardView(
                     food: plate.food
                 )

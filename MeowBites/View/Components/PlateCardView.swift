@@ -12,17 +12,20 @@ struct PlateCardView: View {
     @Query var plates: [Plate]
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var viewModel: FoodLogViewModel
+    @Query var intakeLogs: [IntakeLog]
+
     var food: FoodItem
     var amount: Int {
-        plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+        return intakeLogs.last!.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
+
     func addServing() {
-        viewModel.addServing(modelContext: modelContext, food: food, plates: plates)
+        viewModel.addServing(modelContext: modelContext, food: food, intakeLogs: intakeLogs)
     }
 
     func removeServing() {
-        viewModel.removeServing(modelContext: modelContext, food: food, plates: plates)
+        viewModel.removeServing(modelContext: modelContext, food: food, intakeLogs: intakeLogs)
     }
 
     var body: some View {
@@ -79,7 +82,6 @@ struct PlateCardView: View {
                 HStack(spacing: 36) {
                     Button(action: {
                         removeServing()
-//                        serving -= 1
                     }) {
                         Image(systemName: "minus")
                             .foregroundStyle(.white)
@@ -94,7 +96,6 @@ struct PlateCardView: View {
 
                     Button(action: {
                         addServing()
-//                        serving += 1
                     }) {
                         Image(systemName: "plus")
                             .foregroundStyle(.white)

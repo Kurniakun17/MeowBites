@@ -9,10 +9,12 @@ import SwiftData
 import SwiftUI
 
 struct FoodPlate: View {
+    @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: FoodLogViewModel
     @Query private var plates: [Plate]
     @State var plateSort = SortDescriptor(\Plate.food.calorie)
+    @Query var intakeLogs: [IntakeLog]
 
     var body: some View {
         ZStack {
@@ -25,38 +27,41 @@ struct FoodPlate: View {
                     VStack {
                         VStack(alignment: .leading, spacing: 16) {
                             VStack(alignment: .leading, spacing: 16) {
-                                HStack {
-                                    Text("Sort by:")
+                                VStack {
+                                    HStack {
+                                        Text("Sort by:")
 
-                                    Picker("Select a paint color", selection: $plateSort) {
-                                        Image("calorie")
-                                            .resizable()
-                                            .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\Plate.food.calorie))
+                                        Picker("Select a paint color", selection: $plateSort) {
+                                            Image("calorie")
+                                                .resizable()
+                                                .frame(width: 12, height: 12)
+                                                .tag(SortDescriptor(\Plate.food.calorie))
 
-                                        Image("sugar")
-                                            .resizable()
-                                            .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\Plate.food.sugar))
+                                            Image("sugar")
+                                                .resizable()
+                                                .frame(width: 12, height: 12)
+                                                .tag(SortDescriptor(\Plate.food.sugar))
 
-                                        Image("salt")
-                                            .resizable()
-                                            .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\Plate.food.salt))
+                                            Image("salt")
+                                                .resizable()
+                                                .frame(width: 12, height: 12)
+                                                .tag(SortDescriptor(\Plate.food.salt))
 
-                                        Image("fat")
-                                            .resizable()
-                                            .frame(width: 12, height: 12)
-                                            .tag(SortDescriptor(\Plate.food.fat))
+                                            Image("fat")
+                                                .resizable()
+                                                .frame(width: 12, height: 12)
+                                                .tag(SortDescriptor(\Plate.food.fat))
+                                        }
+                                        .pickerStyle(.menu)
+                                        .padding(.vertical, 5)
+                                        .padding(.horizontal, 3)
+                                        .background(.semigray)
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                                        .scaleEffect(0.6)
+                                        .offset(x: -20)
                                     }
-                                    .pickerStyle(.menu)
-                                    .padding(.vertical, 5)
-                                    .padding(.horizontal, 3)
-                                    .background(.semigray)
-                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                    .scaleEffect(0.6)
-                                    .offset(x: -20)
                                 }
+                                .frame(maxWidth: .infinity, alignment: .leading)
 
                                 PlateList(sort: plateSort)
                             }
@@ -84,7 +89,10 @@ struct FoodPlate: View {
                                     .stroke(.prime, lineWidth: 2)
                             }
                     }
-                    Button {} label: {
+                    Button {
+                        intakeLogs.last!.isLogged = true
+                        dismiss()
+                    } label: {
                         Text("Log")
                             .foregroundStyle(.white)
                             .font(.headline)

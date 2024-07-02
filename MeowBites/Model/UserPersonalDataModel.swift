@@ -15,6 +15,7 @@ class UserPersonalData: Identifiable {
     var weight: Int
     var height: Int
     var exerciseRate: String
+    var isDoneOnboarding = false
 
     init(gender: String, age: Int, weight: Int, height: Int, exerciseRate: String) {
         self.gender = gender
