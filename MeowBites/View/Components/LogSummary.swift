@@ -11,7 +11,7 @@ import SwiftUI
 struct StateItem {
     let title: String
     let color: Color
-    let face: String // You can use an enum or symbol system for faces if needed
+    let face: String
 }
 
 // Define a dictionary to hold the states
@@ -24,6 +24,7 @@ let state: [String: StateItem] = [
 struct LogSummary: View {
     @EnvironmentObject var viewModel: FoodLogViewModel
     @Query var intakeLogs: [IntakeLog]
+    @State var goToPlate = false
     var isPlatePage = false
 
     var body: some View {
@@ -81,18 +82,37 @@ struct LogSummary: View {
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)
 
-                if !isPlatePage {
-                    NavigationLink { FoodPlate() } label: {
+//                if !isPlatePage {
+//                    NavigationLink { FoodPlate() } label: {
+//                        Text("See Detail")
+//                            .font(.headline)
+//                            .fontWeight(.bold)
+//                            .frame(maxWidth: .infinity)
+//                            .padding(20)
+//                            .foregroundStyle(.white)
+//                            .background(.prime)
+//                            .clipShape(RoundedRectangle(cornerRadius: 16))
+//                    }
+//                }
+
+                if !isPlatePage{
+                    Button(action: {
+                        goToPlate = true
+                    }) {
                         Text("See Detail")
                             .font(.headline)
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity)
                             .padding(20)
                             .foregroundStyle(.white)
-                            .background(.prime)
+                            .background(intakeLogs.last!.plates.isEmpty ? .gray : .prime)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                     }
+                    .disabled(intakeLogs.last!.plates.isEmpty)
                 }
+            }
+            .sheet(isPresented: $goToPlate) {
+                FoodPlate()
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, isPlatePage ? 16 : 32)
@@ -110,6 +130,13 @@ struct LogSummary: View {
 }
 
 #Preview {
-    LogSummary()
-        .environmentObject(FoodLogViewModel())
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: IntakeLog.self, DailyIntakeLog.self)
+        return LogSummary()
+            .environmentObject(FoodLogViewModel())
+            .modelContainer(container)
+    } catch {
+        fatalError("Error log summary")
+    }
 }

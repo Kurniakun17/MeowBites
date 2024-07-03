@@ -74,21 +74,12 @@ struct Home: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack {}.frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity,
-                    alignment: .topLeading
-                )
-                .background(.sucessBackground)
-
-                Image("background")
+                Image("grassBg")
                     .scaleEffect(1.05)
 
                 Image("cat1")
                     .shadow(color: .successBody, radius: 0, x: -16, y: 16)
-                    .offset(x: 15, y: -100)
+                    .offset(x: 15, y: -140)
 
                 VStack(spacing: 0) {
                     Spacer()

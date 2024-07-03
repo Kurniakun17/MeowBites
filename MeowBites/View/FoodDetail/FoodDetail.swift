@@ -15,8 +15,8 @@ struct FoodDetail: View {
     @Query var plates: [Plate]
     @Query var intakeLogs: [IntakeLog]
     var food: FoodItem
-    var serving: Int {
-        plates.first(where: { $0.food.id == food.id })?.amount ?? 0
+    var amount: Int {
+        return intakeLogs.last?.plates.first(where: { $0.food.id == food.id })?.amount ?? 0
     }
 
     func addServing() {
@@ -210,7 +210,7 @@ struct FoodDetail: View {
                                     .clipShape(RoundedRectangle(cornerRadius: 8))
                             }
 
-                            Text(String(serving))
+                            Text(String(amount))
                                 .font(.subheadline)
                                 .fontWeight(.bold)
 

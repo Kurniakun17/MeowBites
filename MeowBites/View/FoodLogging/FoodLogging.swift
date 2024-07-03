@@ -13,7 +13,6 @@ struct FoodLogging: View {
     @Environment(\.modelContext) var modelContext
     @EnvironmentObject var viewModel: FoodLogViewModel
     @State private var sortOrder = "calorie"
-//    @Query var plates: [Plate]
     @Query var intakeLogs: [IntakeLog]
 
     var body: some View {
