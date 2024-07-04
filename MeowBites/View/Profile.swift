@@ -1,3 +1,10 @@
+//
+//  FoodDiary.swift
+//  MeowBites
+//
+//  Created by Elsavira T on 01/07/24.
+//
+
 import SwiftUI
 
 
@@ -7,156 +14,154 @@ struct Profile: View {
     @Binding var inputHeight: String
     @Binding var inputWeight: String
     @Binding var inputType: String
+    var genders = ["Male", "Female"]
+    @State private var selectedGender = "Male"
+    var exercises = ["No Exercise", "Light", "Heavy"]
+    @State private var selectedExercise = "No Exercise"
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                ZStack {
+        GeometryReader { geo in
+            ZStack {
+                VStack {
                     Image("grass")
                         .resizable()
-                        .scaledToFill()
-                        .padding(.top, 70)
-                    
-                    HStack {
-                        Image("back")
-                            .frame(width: 100)
-                        Spacer()
-                    }
-                }
-                
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(height: .infinity)
-                        .background(Color.white)
-                        .cornerRadius(30)
-                        .offset(y: -30)
-                    
-                    Image("frame1")
-                        .offset(y:-90)
-                        .padding(.bottom, 32)
-                }
-                
-                VStack {
-                    Text("Profile")
-                        .font(.largeTitle).bold()
-                        .frame(width: 325, height: 24, alignment: .center)
-                        .padding(.bottom, 16)
-                    
-                    Text("Calorie need")
-                        .foregroundColor(Color(red: 0.55, green: 0.58, blue: 0.67))
-                        .font(.callout)
-                        .frame(width: 325, height: 24, alignment: .leading)
-                    Rectangle()
-                        .fill(Color(red: 0.98, green: 0.82, blue: 0.82))
-                        .frame(width: 325, height: 48, alignment: .center)
-                        .cornerRadius(16)
-                        .overlay(alignment: .center, content: {
-                            HStack {
-                                Image("calorie")
-                                    .resizable()
-                                    .frame(width: 16, height: 16)
-                                Text("1978 calories")
-                                    .frame(width: 260, height: 24, alignment: .leading)
-                                    .font(.callout)
-                            }
-                        })
-                        .padding(.bottom, 20)
-                    
-                    Text("Maximum nutrient need")
-                        .foregroundColor(Color(red: 0.55, green: 0.58, blue: 0.67))
-                        .font(.callout)
-                        .frame(width: 325, height: 24, alignment: .leading)
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Color.white)
-                            .frame(width: 326, height: 96)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(Color(red: 0.86, green: 0.87, blue: 0.88), lineWidth: 1))
-                        VStack {
-                            HStack {
-                                Image("calorie")
-                                    .resizable()
-                                    .frame(width: 16, height: 16)
-                                Text("1978 calories")
-                                    .frame(width: 260, height: 24, alignment: .leading)
-                                    .font(.callout)
-                            }
-                            
-                            HStack {
-                                Image("calorie")
-                                    .resizable()
-                                    .frame(width: 16, height: 16)
-                                Text("5g of salt")
-                                    .frame(width: 260, height: 24, alignment: .leading)
-                                    .font(.callout)
-                            }
-                            
-                            HStack {
-                                Image("calorie")
-                                    .resizable()
-                                    .frame(width: 16, height: 16)
-                                Text("66g of fat")
-                                    .frame(width: 260, height: 24, alignment: .leading)
-                                    .font(.callout)
-                            }
-                        }
-                        
-                    }
-                    .padding(.bottom, 20)
-                }
-                .offset(y: -90)
-                
-                VStack {
-                    Form {
-                        Text("User Information")
-                            .foregroundColor(Color(red: 0.55, green: 0.58, blue: 0.67))
-                            .font(.callout)
-                            .frame(width: 325, height: 24, alignment: .leading)
-                        
-                        VStack {
-                            Section {
-                                TextField("Name", text: $inputName)
-                                    .multilineTextAlignment(.trailing)
-                            } header: {
-                                Text("Name")
-                            }
-                            
-                            Section {
-                                TextField("Age", text: $inputAge)
-                                    .multilineTextAlignment(.trailing)
-                            } header: {
-                                Text("Age")
-                            }
-                            
-                            Section {
-                                TextField("Height", text: $inputHeight)
-                                    .multilineTextAlignment(.trailing)
-                            } header: {
-                                Text("Height")
-                            }
-                            
-                            Section {
-                                TextField("Weight", text: $inputWeight)
-                                    .multilineTextAlignment(.trailing)
-                            } header: {
-                                Text("Weight")
-                            }
-                        }
+                        .scaledToFit()
                         .padding(0)
-                        .frame(maxWidth: .infinity)
+                    VStack {
+                        
+                        ScrollView {
+                            VStack {
+                                List {
+                                    Section(header: Text("Calorie Need")) {
+                                        HStack {
+                                            Image("calorie")
+                                                .resizable()
+                                                .frame(width: 24, height: 24)
+                                            Spacer().frame(width: 6)
+                                            Text("1,978 calories")
+                                        }
+                                    }
+                                }
+                            }
+                            .frame(minHeight: 100)
+                            .scrollContentBackground(.hidden)
+                            
+                            
+                            VStack(alignment: .leading, spacing: 0) {
+                                
+                                List {
+                                    Section(header: Text("Maximum nutrient need")) {
+                                        HStack {
+                                            Image("sugarlogo")
+                                                .frame(width: 16, height: 16)
+                                            Spacer().frame(width: 14)
+                                            Text("148 of sugar")
+                                        }
+                                        HStack {
+                                            Image("saltlogo")
+                                                .frame(width: 16, height: 16)
+                                            Spacer().frame(width: 14)
+                                            Text("5g of salt")
+                                        }
+                                        HStack {
+                                            Image("fatlogo")
+                                                .frame(width: 16, height: 16)
+                                            Spacer().frame(width: 14)
+                                            Text("66g of fat")
+                                        }
+                                    }
+                                }
+                                .frame(height: 200)
+                                .scrollContentBackground(.hidden)
+                            }
+                            
+                            
+                            
+                            VStack(spacing: 20) {
+                                List {
+                                    Section(header: Text("Personal Information")) {
+                                        HStack {
+                                            Text("Name")
+                                            Spacer()
+                                            TextField("Name", text: $inputName)
+                                                .multilineTextAlignment(.trailing)
+                                                .textFieldStyle(PlainTextFieldStyle())
+                                        }
+                                        HStack {
+                                            Text("Gender")
+                                            Spacer()
+                                            Picker("", selection: $selectedGender) {
+                                                ForEach(genders, id: \.self) {
+                                                    Text($0)
+                                                }
+                                            }
+                                            .pickerStyle(MenuPickerStyle())
+                                        }
+                                        HStack {
+                                            Text("Age")
+                                            Spacer()
+                                            TextField("Age", text: $inputAge)
+                                                .multilineTextAlignment(.trailing)
+                                                .textFieldStyle(PlainTextFieldStyle())
+                                        }
+                                        HStack {
+                                            Text("Height")
+                                            Spacer()
+                                            TextField("Height", text: $inputHeight)
+                                                .multilineTextAlignment(.trailing)
+                                                .textFieldStyle(PlainTextFieldStyle())
+                                        }
+                                        HStack {
+                                            Text("Weight")
+                                            Spacer()
+                                            TextField("Weight", text: $inputWeight)
+                                                .multilineTextAlignment(.trailing)
+                                                .textFieldStyle(PlainTextFieldStyle())
+                                        }
+                                    }
+                                }
+                                .frame(height: 280)
+                                .scrollContentBackground(.hidden)
+                                
+                                List {
+                                    Section(header: Text("Exercise")) {
+                                        HStack {
+                                            Text("Type")
+                                            Spacer()
+                                            Picker("", selection: $selectedExercise) {
+                                                ForEach(exercises, id: \.self) {
+                                                    Text($0)
+                                                }
+                                            }
+                                            .pickerStyle(MenuPickerStyle())
+                                        }
+                                    }
+                                }
+                                .frame(height: 90)
+                                .scrollContentBackground(.hidden)
+                            }
+                        }
+                        .background(Color(red: 0.95, green: 0.95, blue: 0.96))
+                        
                     }
-                    .padding(.horizontal)
+                    .padding(0)
+                    .background(Color(red: 0.95, green: 0.95, blue: 0.96))
                 }
-                .offset(y: -290)
+                
+                VStack {
+                    Image("back")
+                        .frame(width: 400, height: 100, alignment: .leading)
+                    Image("frame1")
+                    Spacer()
+                }
             }
             .ignoresSafeArea()
+            .frame(maxHeight: .infinity)
+            .background(Color(red: 0.95, green: 0.95, blue: 0.96))
         }
     }
 }
 
 #Preview {
-    Profile(inputName: .constant("test"), inputAge: .constant("test"), inputHeight: .constant("test"), inputWeight: .constant("test"), inputType: .constant("test"))
+    Profile(inputName: .constant("Meow"), inputAge: .constant("27"), inputHeight: .constant("170"), inputWeight: .constant("56"), inputType: .constant("test"))
 }
