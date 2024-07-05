@@ -20,19 +20,6 @@ struct OnboardingStart: View {
     var body: some View {
         if (personalDatas.last?.isDoneOnboarding) != nil && (personalDatas.last?.isDoneOnboarding) == true {
             Home()
-//                .onAppear {
-//                    for data in personalDatas {
-//                        context.delete(data)
-//                    }
-//
-//                    for data in bmrDatas {
-//                        context.delete(data)
-//                    }
-//                    
-//                    for data in intakeLogs{
-//                        context.delete(data)
-//                    }
-//                }
         } else {
             NavigationStack {
                 GeometryReader {
@@ -68,17 +55,6 @@ struct OnboardingStart: View {
                                     .multilineTextAlignment(.center)
                             }
                             .padding(.horizontal, 32)
-                            //                        Button(action: {
-                            //                            for item in personalDatas {
-                            //                                context.delete(item)
-                            //                            }
-                            //                            for item in bmrDatas {
-                            //                                context.delete(item)
-                            //                            }
-                            //                        }, label: {
-                            //                            Text("Delete Data")
-                            //                        })
-
                             NavigationLink(destination: OnboardingPersonalData(step: $step), label: {
                                 Text("Start calculate BMR")
                                     .font(.system(size: 24, weight: .bold))

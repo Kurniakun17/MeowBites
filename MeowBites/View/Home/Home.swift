@@ -1,11 +1,3 @@
-
-
-//
-//  HomeRevised.swift
-//  DinoBites
-//
-//  Created by Kurnia Kharisma Agung Samiadjie on 24/06/24.
-//
 import SwiftData
 import SwiftUI
 
@@ -25,51 +17,51 @@ struct Home: View {
     }
 
     var caloriePercentage: Int {
-        generatePercentage(type: "calorie")
+        generatePercentage(type: .calorie)
     }
 
     var sugarPercentage: Int {
-        generatePercentage(type: "sugar")
+        generatePercentage(type: .sugar)
     }
 
     var saltPercentage: Int {
-        generatePercentage(type: "salt")
+        generatePercentage(type: .salt)
     }
 
     var fatPercentage: Int {
-        generatePercentage(type: "fat")
+        generatePercentage(type: .fat)
     }
 
-    func generatePercentage(type: String) -> Int {
+    enum NutritionType: String {
+        case calorie, sugar, salt, fat
+    }
+
+    func generatePercentage(type: NutritionType) -> Int {
         switch type {
-        case "calorie":
+        case .calorie:
             if todayLog.calorie == 0.0 {
                 return 1
             }
-
             return Int(todayLog.calorie / bmrData.calorie * 100)
-        case "sugar":
+        case .sugar:
             if todayLog.sugar == 0.0 {
                 return 1
             }
             return Int(todayLog.sugar / bmrData.sugar * 100)
-
-        case "salt":
+        case .salt:
             if todayLog.salt == 0.0 {
                 return 1
             }
             return Int(todayLog.salt / bmrData.salt * 100)
-
-        case "fat":
+        case .fat:
             if todayLog.fat == 0.0 {
                 return 1
             }
             return Int(todayLog.fat / bmrData.calorie * 100)
-
-        default:
-            return 0
         }
     }
+
+    @State private var selectedNutrition: NutritionType?
 
     var body: some View {
         NavigationStack {
@@ -86,11 +78,65 @@ struct Home: View {
 
                     HStack(spacing: 20) {
                         NutritionBar(type: "calorie", percentage: caloriePercentage)
-                        NutritionBar(type: "sugar", percentage: sugarPercentage)
-                        NutritionBar(type: "salt", percentage: saltPercentage)
-                        NutritionBar(type: "fat", percentage: fatPercentage)
-                    }
+                            .onTapGesture {
+                                selectedNutrition = .calorie
+                            }
+                            .popover(isPresented: Binding(
+                                get: { selectedNutrition == .calorie },
+                                set: { if !$0 { selectedNutrition = nil } }
+                            ), attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
+                                VStack {
+                                    Text("Calorie")
+                                    Text("\(caloriePercentage)%")
+                                }
+                                .presentationCompactAdaptation(.none)
+                            }
 
+                        NutritionBar(type: "sugar", percentage: sugarPercentage)
+                            .onTapGesture {
+                                selectedNutrition = .sugar
+                            }
+                            .popover(isPresented: Binding(
+                                get: { selectedNutrition == .sugar },
+                                set: { if !$0 { selectedNutrition = nil } }
+                            ), attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
+                                VStack {
+                                    Text("Sugar")
+                                    Text("\(sugarPercentage)%")
+                                }
+                                .presentationCompactAdaptation(.none)
+                            }
+
+                        NutritionBar(type: "salt", percentage: saltPercentage)
+                            .onTapGesture {
+                                selectedNutrition = .salt
+                            }
+                            .popover(isPresented: Binding(
+                                get: { selectedNutrition == .salt },
+                                set: { if !$0 { selectedNutrition = nil } }
+                            ), attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
+                                VStack {
+                                    Text("Salt")
+                                    Text("\(saltPercentage)%")
+                                }
+                                .presentationCompactAdaptation(.none)
+                            }
+
+                        NutritionBar(type: "fat", percentage: fatPercentage)
+                            .onTapGesture {
+                                selectedNutrition = .fat
+                            }
+                            .popover(isPresented: Binding(
+                                get: { selectedNutrition == .fat },
+                                set: { if !$0 { selectedNutrition = nil } }
+                            ), attachmentAnchor: .rect(.bounds), arrowEdge: .bottom) {
+                                VStack {
+                                    Text("Fat")
+                                    Text("\(fatPercentage)%")
+                                }
+                                .presentationCompactAdaptation(.none)
+                            }
+                    }
                     .padding(.bottom, 12)
 
                     VStack(spacing: 14) {
@@ -178,7 +224,6 @@ struct Home: View {
     }
 
     func generateEmptyLog() {
-//        If there is no unlogged intake, create a new one
         if intakeLogs.count > 0 && intakeLogs.last!.isLogged {
             context.insert(IntakeLog(Date: Date(), plates: []))
         } else if intakeLogs.isEmpty {
@@ -187,7 +232,6 @@ struct Home: View {
     }
 
     func generateDailyIntake() {
-//        If there is no todays log, create a new one
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let today = formatter.string(from: Date())

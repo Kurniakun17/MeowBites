@@ -15,7 +15,7 @@ class OnboardingViewModel: ObservableObject {
 
     func calculateBMR(userPersonalData: UserPersonalData) -> BMRData {
         var BMR: Double
-        var BMRCalculation = BMRData(calorie: 0, sugar: 0, salt: 0, fat: 0)
+        let BMRCalculation = BMRData(calorie: 0, sugar: 0, salt: 0, fat: 0)
 
         let weightFactorMale = 13.4 * Double(userPersonalData.weight)
         let heightFactorMale = 4.8 * Double(userPersonalData.height)
