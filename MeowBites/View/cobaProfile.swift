@@ -1,14 +1,6 @@
-//
-//  FoodDiary.swift
-//  MeowBites
-//
-//  Created by Elsavira T on 01/07/24.
-//
-
 import SwiftUI
 
-
-struct Profile: View {
+struct cobaProfile: View {
     @Binding var inputName: String
     @Binding var inputAge: String
     @Binding var inputHeight: String
@@ -28,8 +20,8 @@ struct Profile: View {
                         .scaledToFit()
                         .padding(0)
                     VStack {
+                        
                         ScrollView {
-                            Spacer(minLength: 30)
                             VStack {
                                 List {
                                     Section(header: Text("Calorie Need")) {
@@ -43,7 +35,7 @@ struct Profile: View {
                                     }
                                 }
                             }
-                            .frame(height: 100)
+                            .frame(minHeight: 100)
                             .scrollContentBackground(.hidden)
                             
                             
@@ -74,6 +66,7 @@ struct Profile: View {
                                 .frame(height: 200)
                                 .scrollContentBackground(.hidden)
                             }
+                            
                             
                             
                             VStack(spacing: 20) {
@@ -140,39 +133,29 @@ struct Profile: View {
                                 .scrollContentBackground(.hidden)
                             }
                         }
-                        .padding(.top, 30)
                         .background(Color(red: 0.95, green: 0.95, blue: 0.96))
+                        
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 0)
-                    .background(Color(red: 0.8, green: 0.94, blue: 0.75))
-                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                    .padding(0)
+                    .background(Color(red: 0.95, green: 0.95, blue: 0.96))
                 }
-                .background(Color(red: 0.8, green: 0.94, blue: 0.75))
                 
                 VStack {
-                    HStack {
-                        Image("back")
-                            .frame(width: 48, height: 48)
-                            .padding(.top, 69)
-                            .padding(.horizontal, 32)
-                        Spacer()
-                    }
+                    Image("back")
+                        .frame(width: 400, height: 100, alignment: .leading)
                     Image("frame1")
-                        .padding(.top, 30)
                     Spacer()
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
             }
             .ignoresSafeArea()
             .frame(maxHeight: .infinity)
-            .padding(0)
             .background(Color(red: 0.95, green: 0.95, blue: 0.96))
         }
     }
 }
 
+
 #Preview {
-    Profile(inputName: .constant("Meow"), inputAge: .constant("27"), inputHeight: .constant("170"), inputWeight: .constant("56"), inputType: .constant("test"))
+    cobaProfile(inputName: .constant("Meow"), inputAge: .constant("27"), inputHeight: .constant("172"), inputWeight: .constant("59"), inputType: .constant("test"))
 }
+
