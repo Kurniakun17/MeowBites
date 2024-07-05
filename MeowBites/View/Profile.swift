@@ -28,8 +28,8 @@ struct Profile: View {
                         .scaledToFit()
                         .padding(0)
                     VStack {
-                        
                         ScrollView {
+                            Spacer(minLength: 30)
                             VStack {
                                 List {
                                     Section(header: Text("Calorie Need")) {
@@ -43,7 +43,7 @@ struct Profile: View {
                                     }
                                 }
                             }
-                            .frame(minHeight: 100)
+                            .frame(height: 100)
                             .scrollContentBackground(.hidden)
                             
                             
@@ -74,7 +74,6 @@ struct Profile: View {
                                 .frame(height: 200)
                                 .scrollContentBackground(.hidden)
                             }
-                            
                             
                             
                             VStack(spacing: 20) {
@@ -141,22 +140,34 @@ struct Profile: View {
                                 .scrollContentBackground(.hidden)
                             }
                         }
+                        .padding(.top, 30)
                         .background(Color(red: 0.95, green: 0.95, blue: 0.96))
-                        
                     }
-                    .padding(0)
-                    .background(Color(red: 0.95, green: 0.95, blue: 0.96))
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 0)
+                    .background(Color(red: 0.8, green: 0.94, blue: 0.75))
+                    .clipShape(RoundedRectangle(cornerRadius: 32))
                 }
+                .background(Color(red: 0.8, green: 0.94, blue: 0.75))
                 
                 VStack {
-                    Image("back")
-                        .frame(width: 400, height: 100, alignment: .leading)
+                    HStack {
+                        Image("back")
+                            .frame(width: 48, height: 48)
+                            .padding(.top, 69)
+                            .padding(.horizontal, 32)
+                        Spacer()
+                    }
                     Image("frame1")
+                        .padding(.top, 30)
                     Spacer()
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
             }
             .ignoresSafeArea()
             .frame(maxHeight: .infinity)
+            .padding(0)
             .background(Color(red: 0.95, green: 0.95, blue: 0.96))
         }
     }
